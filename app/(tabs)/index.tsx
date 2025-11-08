@@ -1,37 +1,74 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, Text, View, ScrollView, FlatList,   } from 'react-native';
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import { Platform, StyleSheet, Text, View, ScrollView, FlatList, ViewStyle, } from 'react-native';
 import { Link } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Fonts } from '@/constants/theme';
+import { dishes } from '@/functions/theDishArray';
+import { ImageBackground } from 'expo-image';
 
 export default function HomeScreen() {
   return (
-  <View>
-    <Text>Home Page </Text>
+    <ScrollView>
+  <View style={{ alignSelf: 'center', }}>
+    <Text>Entrées</Text>
+      <View style={styles.courseContainer}>
+        <View>
+
+        </View>
+        <View>
+          
+        </View>
+      </View>
+    
+    <Text>Mains </Text>
+
+      <View style={styles.courseContainer}>
+        <View>
+
+        </View>
+        <View>
+          
+        </View>
+      </View>
+
+    <Text>Desserts</Text>'
+      <View style={styles.courseContainer}>
+        <View>
+
+        </View>
+        <View>
+          
+        </View>
+      </View>
   </View>
+  </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
+courseContainer: {
+  backgroundColor: 'blue',
+  alignSelf: 'center'
+},
+disheContainer:{
+  backgroundColor: '#00000',
+  margin: 2.3,
+  
+},
+descriptionText:{
+  fontFamily: 'Inter',
+  fontWeight: '500',
+  alignSelf: 'flex-start',
+  margin: 10,
+},
+heading:{
+  fontSize: 13.5,
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  marginBottom: 5,
+  alignSelf: 'center'
+}
+
+
 });
