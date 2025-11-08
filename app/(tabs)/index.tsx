@@ -12,7 +12,7 @@ import { Fonts } from '@/constants/theme';
 export default function HomeScreen() {
   return (
   <View>
-    <Text></Text>
+    <Text>Home Page </Text>
   </View>
   );
 }
