@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { ImageBackground } from 'expo-image';
 
-export default function Gallery(){
+export default function Add(){
     return(
         <View>
             <Text>Gallery</Text>
