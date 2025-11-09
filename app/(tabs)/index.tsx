@@ -6,43 +6,59 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Fonts } from '@/constants/theme';
 import { dishes } from '@/functions/theDishArray';
 import { ImageBackground } from 'expo-image';
+import { DishEntries } from '@/functions/DishesEntries';
 
 export default function HomeScreen() {
   return (
-    <ScrollView>
-  <View style={{ alignSelf: 'center', }}>
+  <LinearGradient
+  colors={['#ebf3ed50', '#d4f190e7']}
+  start={{x:0.2, y:1}}
+  >
+  <ImageBackground
+  source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')}
+  >
+  <View style={styles.courseContainer}>
+    
     <Text>Entrées</Text>
-      <View style={styles.courseContainer}>
+      <View >
         <View>
-
+          <Image/>
+        </View>
+          <Text>
+            <Text>Description</Text>
+            
+          </Text>
         </View>
         <View>
-          
+          <Text>Price</Text>
+          <Text></Text>
         </View>
       </View>
-    
+  <View style={styles.courseContainer}>
+
     <Text>Mains </Text>
 
-      <View style={styles.courseContainer}>
         <View>
-
+        <Image/>
         </View>
         <View>
-          
-        </View>
-      </View>
-
-    <Text>Desserts</Text>'
-      <View style={styles.courseContainer}>
-        <View>
-
-        </View>
-        <View>
-          
+          <Text>Description</Text>
         </View>
       </View>
-  </View>
-  </ScrollView>
+
+
+  <View style={styles.courseContainer}>
+    <Text>Desserts</Text>
+        <View>
+          <Image/>
+        </View>
+        <View>
+          <Text>Description</Text>
+        </View>
+      </View>
+      
+      </ImageBackground>
+ </LinearGradient>
   );
 }
 
@@ -68,6 +84,16 @@ heading:{
   fontWeight: '600',
   marginBottom: 5,
   alignSelf: 'center'
+},
+baseLineText:{
+  fontSize: 5,
+  fontWeight:'300',
+  color: '#332d2dff'
+},
+heading2:{
+  fontSize: 20,
+  color: '#272424fff',
+  fontWeight: '600'
 }
 
 
