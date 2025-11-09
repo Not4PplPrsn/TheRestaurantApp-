@@ -38,6 +38,6 @@ export const useDishStore = create<DishStore>((set, get) => ({
   },
   getByCourse: (course: string) => { // this will filter the dishes based on the course name
   const { entries } = get();
-  return entries.filter((dish) => dish.courseName === course);
+  return entries.filter((dish) => dish.courseName === course);/**Will Filter based upon the course */
 }
 }));
