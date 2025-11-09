@@ -3,7 +3,7 @@ import { useRoute } from '@react-navigation/native';
 import { Drawer } from 'expo-router/drawer';
 import React from 'react';
 import 'react-native-reanimated';
-
+import { useRouter } from 'expo-router';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
@@ -17,8 +17,8 @@ export default function RootLayout() {
   return (
     <Drawer
     screenOptions={{
-      drawerType: 'front', headerShown: true/**Force the header for the drawer to show  */,
-            drawerStyle: { width: 350,
+      drawerType: 'front', headerShown: false/**Force the header for the drawer to show  */,
+            drawerStyle: { width: 260,
         direction: 'ltr',
         paddingTop: 5,
         paddingBottom: 15,
@@ -28,32 +28,62 @@ export default function RootLayout() {
         animationName:'slide-in-right',
         animationFillMode: 'forwards',
         animationDuration: '5050ms',
+        backgroundColor: '#0022EE',
       },
             
       drawerPosition: 'right',
       drawerLabelStyle: { textAlign: 'right', paddingRight: 10, paddingLeft: 0 ,},
       headerTitleAlign: 'left', 
+      drawerActiveTintColor:'rgba(236, 137, 124, 1)',
+      drawerInactiveTintColor: '#fff',
+
+      headerStyle:{
+        backgroundColor:"#0000",
+        shadowColor: '#00000',
+        
+        
+      },
+      headerTitle: "",
+      headerTitleStyle:{
+        alignSelf: "center",
+        alignContent: 'center',
+        textAlign: 'center'
+      }
+      
 
 
     }}
+    drawerContent={() => <DrawerScroller/>/**Called the function below in here so it is used  */}
     />
   );
 }
 
-function CustomDrawerContent(){
-  const router = useRoute; // this is what we will use fo the exclusion of certain pages
-
-
+function DrawerScroller(){
+  const router= useRouter();//The navigation function which will allow the tabs navigate to their respective page
   return(
     <DrawerContentScrollView>
-      <DrawerItemList>
-        <DrawerItem/>
-        <DrawerItem/>
-        <DrawerItem/>
-        <DrawerItem/>
+<DrawerItem
+  label="Main"
+  labelStyle={{ textAlign: 'right', color: "#ffff", textTransform: 'uppercase' }}
 
-      </DrawerItemList>
+  onPress={() => router.push('/(tabs)')}
+  
+
+  />
+
+  <DrawerItem
+    label = "Add New dishes"
+    labelStyle= {{textAlign: 'right',color: '#fff', textTransform: 'uppercase'}}
+    onPress ={() => router.push('/EditPages/Add')}
+  />
+
+  <DrawerItem
+  label= "Menu Selection"
+      labelStyle= {{textAlign: 'right', color:"#ffff", textTransform: "uppercase"}}
+
+    onPress={() => router.push('/Select')}
+  />
+
     </DrawerContentScrollView>
-
   );
 }

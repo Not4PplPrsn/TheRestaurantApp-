@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { dishes } from './theDishArray';
+import { create } from 'zustand';// allow for the transfer of these functions between the typescript files 
+import { dishes } from './theDishArray';// these are the items which are
 
 export type DishEntries = { // The kinds of the information that can fill the array elements
   id: string;

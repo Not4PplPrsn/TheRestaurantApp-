@@ -8,3 +8,5 @@ export default function Gallery(){
         </View>
     );
 }
+
+const styles = StyleSheet
