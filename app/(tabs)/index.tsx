@@ -1,7 +1,7 @@
 import { Image, ImageBackground } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-
+import { useDishStore } from '@/functions/DishesEntries';
 export default function HomeScreen() {
   return (
 
@@ -12,7 +12,7 @@ export default function HomeScreen() {
   />
 
   <LinearGradient
-  colors={['transparent', '#C52A1D']}
+  colors={['#e2d8d879', '#c52b1db6']}
   start={{x:0.15, y:0.26}}
   end={{x:0.26, y:1.06}}
   style={[StyleSheet.absoluteFill, ]}
@@ -21,10 +21,11 @@ export default function HomeScreen() {
 
   <View style={styles.courseContainer}>
     
-    <Text>Entrées</Text>
-      
+    <Text style={styles.heading2} >Entrées</Text>
+      <View style={styles.dishContainer}>
         <View>
           <Image/>
+          <Text></Text>
         </View>
         <View >
         <Text style={styles.heading3}>Description</Text>
@@ -36,16 +37,18 @@ export default function HomeScreen() {
         <View>
           <Text></Text>
         </View>
+        </View>
       </View>
   <View style={styles.courseContainer}>
 
-    <Text>Mains </Text>
+    <Text style={styles.heading2}>Mains </Text>
 
         <View>
         <Image/>
+        <Text></Text>
         </View>
                 <View >
-        <Text>Description</Text>
+        <Text >Description</Text>
           <Text>
             
             
@@ -60,10 +63,11 @@ export default function HomeScreen() {
 
 
   <View style={styles.courseContainer}>
-    <Text>Desserts</Text>
+    <Text style={styles.heading2}>Desserts</Text>
         <View>
           <Image/>
-        </View>
+          <Text></Text>
+        </View> <Text></Text>
         <View >
         <Text>Description</Text>
           <Text>
@@ -99,6 +103,9 @@ courseContainer: {
 dishContainer:{
   backgroundColor: '#00000',
   margin: 2.3,
+  shadowColor:'#ffff',
+  width: 100,
+  
   
 },
 descriptionText:{
@@ -113,11 +120,12 @@ heading:{
   fontWeight: '600',
   marginTop: 90,
   alignSelf: 'center',
-  color: '#ffff',
+  color: '#3b3838ff',
   width: 150,
   borderBottomColor: '#ee9c9ce8',
   borderBottomWidth: 5,
-  lineHeight: 70
+  lineHeight: 70,
+  
   
 },
 baseLineText:{
@@ -127,15 +135,15 @@ baseLineText:{
 },
 heading2:{
   fontSize: 20,
-  color: '#272424fff',
-  fontWeight: '600'
+  color: '#ffff',
+  fontWeight: '600',
 },
 textContainer:{
   
 },
 heading3:{
   fontFamily: 'Time New Roman'
-}
+},
 
 
 });
