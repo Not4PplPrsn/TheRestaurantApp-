@@ -1,36 +1,39 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet, Text, View, ScrollView, FlatList, ViewStyle, } from 'react-native';
-import { Link } from 'expo-router';
+import { Image, ImageBackground } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Fonts } from '@/constants/theme';
-import { dishes } from '@/functions/theDishArray';
-import { ImageBackground } from 'expo-image';
-import { DishEntries } from '@/functions/DishesEntries';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
-  <LinearGradient
-  colors={['#ebf3ed50', '#d4f190e7']}
-  start={{x:0.2, y:1}}
-  >
-  <ImageBackground
+
+  <ScrollView>
+      <ImageBackground
   source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')}
-  >
+  style={[StyleSheet.absoluteFill,{opacity:20} ]}
+  />
+
+  <LinearGradient
+  colors={['transparent', '#c42c21f5']}
+  start={{x:1, y:0.2}}
+  end={{x:0.25, y:2}}
+  style={[StyleSheet.absoluteFill,{opacity:20} ]}
+  />
+      <Text style={styles.heading}>Welcome</Text>
+
   <View style={styles.courseContainer}>
     
     <Text>Entrées</Text>
-      <View >
+      
         <View>
           <Image/>
         </View>
+        <View >
+        <Text style={styles.heading3}>Description</Text>
           <Text>
-            <Text>Description</Text>
+            
             
           </Text>
         </View>
         <View>
-          <Text>Price</Text>
           <Text></Text>
         </View>
       </View>
@@ -41,9 +44,18 @@ export default function HomeScreen() {
         <View>
         <Image/>
         </View>
-        <View>
-          <Text>Description</Text>
+                <View >
+        <Text>Description</Text>
+          <Text>
+            
+            
+          </Text>
         </View>
+        <View>
+          <Text></Text>
+        </View>
+
+
       </View>
 
 
@@ -52,22 +64,39 @@ export default function HomeScreen() {
         <View>
           <Image/>
         </View>
+        <View >
+        <Text>Description</Text>
+          <Text>
+            
+            
+          </Text>
+        </View>
         <View>
-          <Text>Description</Text>
+          <Text></Text>
         </View>
       </View>
       
-      </ImageBackground>
- </LinearGradient>
+      
+ 
+ </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
 courseContainer: {
-  backgroundColor: 'blue',
-  alignSelf: 'center'
+  backgroundColor: '#f1b93fff',
+  alignSelf: 'center',
+  margin: 50,
+  width: 350,
+   height: 180,
+   padding: 20,
+   borderTopRightRadius:20,
+   borderBottomRightRadius:20,
+   borderBottomLeftRadius:20
+
+  
 },
-disheContainer:{
+dishContainer:{
   backgroundColor: '#00000',
   margin: 2.3,
   
@@ -82,8 +111,9 @@ heading:{
   fontSize: 13.5,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginBottom: 5,
-  alignSelf: 'center'
+  margin: 50,
+  alignSelf: 'center',
+  color: '#ffff'
 },
 baseLineText:{
   fontSize: 5,
@@ -94,6 +124,12 @@ heading2:{
   fontSize: 20,
   color: '#272424fff',
   fontWeight: '600'
+},
+textContainer:{
+  
+},
+heading3:{
+  fontFamily: 'Time New Roman'
 }
 
 

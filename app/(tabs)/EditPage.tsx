@@ -4,8 +4,14 @@ import { ImageBackground } from 'expo-image';
 
 export default function Gallery(){
     return(
-  <LinearGradient>
   <ImageBackground>
+      <LinearGradient
+    colors={['#ebf3ed50', '#ff3b30 ']}
+      style={[StyleSheet.absoluteFill,{opacity:20} ]}
+
+
+ />
+
   <View style={styles.courseContainer}>
     
     <Text>Entrées</Text>
@@ -47,7 +53,7 @@ export default function Gallery(){
       </View>
       
       </ImageBackground>
- </LinearGradient>
+ 
     );
 }
 
