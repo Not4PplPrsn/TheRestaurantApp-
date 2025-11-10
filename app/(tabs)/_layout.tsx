@@ -4,6 +4,7 @@ import React from 'react';
 import { HapticTab } from '@/components/haptic-tab';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -15,7 +16,7 @@ export default function TabLayout() {
         headerShown: true ,
         tabBarButton: HapticTab,
         tabBarStyle:{
-          backgroundColor: '#0022EE',
+          backgroundColor: '#C52A1D',
           width: 230,
           height: 60,
           margin: 90,
@@ -40,14 +41,16 @@ export default function TabLayout() {
 
           
         },
-        headerTitleStyle:{
-          fontSize: 39,
-
-        },
           headerTransparent: true,
           headerBackground: () => null,
           headerShadowVisible: false, // removes shadow/elevation
-
+          headerTitle: () => (<View>
+            <Image
+            source ={require('../../assets/images/TheLogo.png')}
+            style ={{height: 50, width: 50, borderRadius:25}}
+            />
+          </View>)/**Added the image as the headerTitle so that it will function as logo in the header. */,
+          headerTitleAlign:'left',
         
         
       }}
