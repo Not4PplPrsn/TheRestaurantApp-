@@ -28,7 +28,7 @@ export default function RootLayout() {
         animationName:'slide-in-right',
         animationFillMode: 'forwards',
         animationDuration: '5050ms',
-        backgroundColor: '#0022EE',
+        backgroundColor: '#C52A1D',
       },
             
       drawerPosition: 'right',
