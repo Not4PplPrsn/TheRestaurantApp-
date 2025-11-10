@@ -56,6 +56,16 @@ export default function TabLayout() {
       }}
       
       >
+          <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="home-outline" color={color} />,
+          
+          
+        }}
+      />
+
       <Tabs.Screen
       name= 'EditPage'
       options = {{
@@ -65,14 +75,6 @@ export default function TabLayout() {
 
       }}
       
-      />
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="home-outline" color={color} />,
-          
-        }}
       />
 
 
