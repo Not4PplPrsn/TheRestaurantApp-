@@ -4,53 +4,25 @@ import { ImageBackground } from 'expo-image';
 
 export default function Gallery(){
     return(
-  <ImageBackground>
+  <ImageBackground
+  source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
+        style={[StyleSheet.absoluteFill,{opacity:20} ]}
+
+  
+  >
       <LinearGradient
-    colors={['#ebf3ed50', '#ff3b30 ']}
+  colors={['#e2d8d898', '#e06e11a9']}
+    start={{x:0.15, y:0.26}}
+  end={{x:0.26, y:1.06}}
+
       style={[StyleSheet.absoluteFill,{opacity:20} ]}
 
 
  />
-
-  <View style={styles.courseContainer}>
+          <Text style={styles.heading}>Editing</Text>
     
-    <Text>Entrées</Text>
-      <View >
-        <View>
-          <Image/>
-        </View>
-          <Text>
-            <Text>Description</Text>
-            
-          </Text>
-        </View>
-        <View>
-          <Text>Price</Text>
-          <Text></Text>
-        </View>
-      </View>
-  <View style={styles.courseContainer}>
+      <View></View>
 
-    <Text>Mains </Text>
-
-        <View>
-        <Image/>
-        </View>
-        <View>
-          <Text>Description</Text>
-        </View>
-      </View>
-
-
-  <View style={styles.courseContainer}>
-    <Text>Desserts</Text>
-        <View>
-          <Image/>
-        </View>
-        <View>
-          <Text>Description</Text>
-        </View>
-      </View>
       
       </ImageBackground>
  
@@ -74,11 +46,19 @@ descriptionText:{
   margin: 10,
 },
 heading:{
-  fontSize: 13.5,
+  fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginBottom: 5,
-  alignSelf: 'center'
+  marginTop: 90,
+  alignSelf: 'center',
+  color: '#3b3838ff',
+  width:'auto',
+  borderBottomColor: '#ee9c9ce8',
+  borderBottomWidth: 5,
+  lineHeight: 70,
+  alignItems: 'center',
+  alignContent: 'center'
+  
 },
 baseLineText:{
   fontSize: 5,
