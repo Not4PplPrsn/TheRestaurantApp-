@@ -8,14 +8,14 @@ export default function HomeScreen() {
   <ScrollView>
       <ImageBackground
   source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')}
-  style={[StyleSheet.absoluteFill,{opacity:20} ]}
+  style={[StyleSheet.absoluteFill,{opacity:60} ]}
   />
 
   <LinearGradient
-  colors={['transparent', '#c42c21f5']}
-  start={{x:1, y:0.2}}
-  end={{x:0.25, y:2}}
-  style={[StyleSheet.absoluteFill,{opacity:20} ]}
+  colors={['transparent', '#C52A1D']}
+  start={{x:0.15, y:0.26}}
+  end={{x:0.26, y:1.06}}
+  style={[StyleSheet.absoluteFill, ]}
   />
       <Text style={styles.heading}>Welcome</Text>
 
@@ -108,12 +108,17 @@ descriptionText:{
   margin: 10,
 },
 heading:{
-  fontSize: 13.5,
+  fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  margin: 50,
+  marginTop: 90,
   alignSelf: 'center',
-  color: '#ffff'
+  color: '#ffff',
+  width: 150,
+  borderBottomColor: '#ee9c9ce8',
+  borderBottomWidth: 5,
+  lineHeight: 70
+  
 },
 baseLineText:{
   fontSize: 5,
