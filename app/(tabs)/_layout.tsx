@@ -3,8 +3,7 @@ import React from 'react';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { Ionicons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -25,7 +24,8 @@ export default function TabLayout() {
           alignContent: 'center',
           borderRadius:30,
           justifyContent: "space-around",
-          paddingBottom: 2
+          paddingBottom: 2,
+          position: 'absolute' /**This allow the page contents of the screens not be effected by the styling on the bottom tab and layers it on the screens rather in the screens */
           
           
         },
@@ -33,11 +33,9 @@ export default function TabLayout() {
         tabBarActiveTintColor: 'rgba(236, 137, 124, 1)',
         headerTitleAlign: 'center',
         headerStyle:{
-          borderBottomWidth: 0,
-          borderBottomColor: "#000000",
-          backgroundColor: "#00000",
-          elevation: 0,
           margin: 50,
+          backgroundColor: 'transparent',
+          position: 'static'
           
 
           
@@ -45,7 +43,12 @@ export default function TabLayout() {
         headerTitleStyle:{
           fontSize: 39,
 
-        }
+        },
+          headerTransparent: true,
+          headerBackground: () => null,
+          headerShadowVisible: false, // removes shadow/elevation
+
+        
         
       }}
       
