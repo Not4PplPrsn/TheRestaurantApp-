@@ -1,12 +1,11 @@
-import { StyleSheet, Text, View, Button, Image, ScrollView, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React,{useState} from 'react';
 
-
-import { useDishStore } from '@/functions/DishesEntries';
-const router = useRouter();
+import { useDishStore } from '@/functions/DishesEntries';// calling the function 
+const router = useRouter(); // function for navigation
 
 
 export default function Added(){
@@ -54,7 +53,10 @@ export default function Added(){
 
           <Text style={styles.heading}>Editing</Text>
     
-      <View></View>
+              <View>
+              
+
+              </View>
 
       
       </ImageBackground>
