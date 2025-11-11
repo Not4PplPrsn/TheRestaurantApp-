@@ -1,13 +1,26 @@
 import { useDishStore } from '@/functions/DishesEntries';
 import { Image, ImageBackground } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+//
+import { ScrollView, StyleSheet, Text, View, } from 'react-native';
+import { useTabBarInactivity } from '@/functions/AutoHidTabBar'; // calling the function  i made  in the functions folder
+// The function for the scroll time out 
+import { useContext } from 'react';
+
+
+
 export default function HomeScreen() {
   const entries = useDishStore((state) => state.entries);
+  /**stored the function in a new variable */
+   const { onTouch } = useTabBarInactivity(); 
 
   return (
 
-  <ScrollView>
+  <ScrollView
+        onTouchStart={onTouch}
+        scrollEventThrottle={16}
+  
+    >
       <ImageBackground
   source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')}
   style={[StyleSheet.absoluteFill,{opacity:60,} ]}
@@ -165,13 +178,14 @@ heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 90,
+  margin: 20,
   alignSelf: 'center',
   color: '#3b3838ff',
   width: 150,
   borderBottomColor: '#ee9c9ce8',
   borderBottomWidth: 5,
   lineHeight: 70,
+
   
   
 },
