@@ -2,7 +2,7 @@ import { create } from 'zustand';// allow for the transfer of these functions be
 import { dishes } from './theDishArray';// these are the items which are
 
 export type DishEntries = { // The kinds of the information that can fill the array elements
-  id: string;
+  id: number;
   dishName: string;
   courseName: string;
   description: string;
@@ -13,7 +13,7 @@ export type DishEntries = { // The kinds of the information that can fill the ar
 type DishStore = {
   entries: DishEntries[];//the package for the entries 
   addDishes: (entry: DishEntries) => void; // sub function being set to an empty state
-  removeDishes: (id: string) => void; // sub function being set to an empt
+  removeDishes: (id: number) => void; // sub function being set to an empt
   getByCourse: (courseName: string) => void; // setting the filtering empty filtering
 };
 
