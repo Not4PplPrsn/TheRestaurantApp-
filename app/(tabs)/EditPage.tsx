@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, ScrollView, TouchableOpacity, } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
+import { useRouter } from 'expo-router';
+import React,{useState} from 'react';
+const router = useRouter();
 
-export default function Gallery(){
+export default function Edit(){
     return(
   <ImageBackground
   source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
@@ -19,6 +22,23 @@ export default function Gallery(){
 
 
  />
+
+      {/**The button to access the add and remove functions. */}
+      <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <TouchableOpacity>
+        <View style={styles.addButton}>
+          <Text style={styles.buttonText} >Add</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <View style={styles.removeButton}>
+          <Text style={styles.buttonText}>Remove</Text>
+        </View>
+      </TouchableOpacity>
+      </View>
+
+
           <Text style={styles.heading}>Editing</Text>
     
       <View></View>
@@ -28,6 +48,7 @@ export default function Gallery(){
  
     );
 }
+
 
 const styles = StyleSheet.create({
 courseContainer: {
@@ -69,6 +90,28 @@ heading2:{
   fontSize: 20,
   color: '#272424fff',
   fontWeight: '600'
+},
+addButton:{
+  width: 76,
+  height: 30,
+  backgroundColor: '#fdfdfdff',
+  margin: 2,
+  borderTopLeftRadius:20,
+  borderBottomLeftRadius:20,
+},
+removeButton:{
+  width: 76,
+  height: 30,
+  backgroundColor: '#ffffffff',
+  margin: 2,
+  borderTopRightRadius: 20,
+  borderBottomRightRadius: 20,
+},
+buttonText: {
+  alignSelf: 'center',
+  margin: 5,
+  fontWeight:'700',
+  fontFamily: 'Roboto'
 }
 
 
