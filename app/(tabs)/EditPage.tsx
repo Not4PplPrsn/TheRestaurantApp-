@@ -23,26 +23,29 @@ export default function Edit(){
 
  />
 
-      {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
-      <TouchableOpacity>
+  
+
+
+          <Text style={styles.heading}>Editing</Text>
+    
+    {/**The button to access the add and remove functions. */}
+      <View style={{flexDirection:'row', alignSelf: 'center', margin: 195,alignItems:'center'}}>
+      <TouchableOpacity
+      onPress={() => router.push('/EditPages/Add')}
+      >
         <View style={styles.addButton}>
           <Text style={styles.buttonText} >Add</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity
+      onPress={() => router.push('/EditPages/Redact')}
+      >
         <View style={styles.removeButton}>
           <Text style={styles.buttonText}>Remove</Text>
         </View>
       </TouchableOpacity>
       </View>
-
-
-          <Text style={styles.heading}>Editing</Text>
-    
-      <View></View>
-
       
       </ImageBackground>
  
@@ -70,7 +73,7 @@ heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 90,
+  marginTop: 20,
   alignSelf: 'center',
   color: '#3b3838ff',
   width:'auto',
@@ -92,16 +95,16 @@ heading2:{
   fontWeight: '600'
 },
 addButton:{
-  width: 76,
-  height: 30,
+  width: 180,
+  height: 40,
   backgroundColor: '#fdfdfdff',
   margin: 2,
   borderTopLeftRadius:20,
   borderBottomLeftRadius:20,
 },
 removeButton:{
-  width: 76,
-  height: 30,
+  width: 180,
+  height: 40,
   backgroundColor: '#ffffffff',
   margin: 2,
   borderTopRightRadius: 20,
@@ -111,8 +114,9 @@ buttonText: {
   alignSelf: 'center',
   margin: 5,
   fontWeight:'700',
-  fontFamily: 'Roboto'
-}
+  fontFamily: 'monospace'
+},
+
 
 
 });
