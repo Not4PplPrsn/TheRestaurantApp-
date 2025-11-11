@@ -34,7 +34,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: 'rgba(236, 137, 124, 1)',
         headerTitleAlign: 'center',
         headerStyle:{
-          margin: 50,
+          margin: 20,
           backgroundColor: 'transparent',
           position: 'static'
           
