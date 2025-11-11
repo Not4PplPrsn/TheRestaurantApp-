@@ -6,6 +6,7 @@ import { useRouter } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
 import { MaterialIcons, Ionicons, Entypo, FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from 'expo-router';
 
 //The pages for the history tab in the drawer
 import RecentlyAdd from './History/RecentlyAdded';
@@ -13,22 +14,25 @@ import Bin from './History/RemovedItems';
 import DetailedCart from './History/ChosenItems';
 import { ReduceMotion } from 'react-native-reanimated';
 
+  const router= useRouter();//The navigation function which will allow the tabs navigate to their respective page
+
+
 // The array where the history is stored.
  
 // The type handling for the array
  type Pages= {
   id: number
   name: string,
-  component: any,
+  path: Parameters<typeof router.push>[0]; /**this parameter allow for me to fill the path element for each item in the array with having to type it out */
   icon: any
   
 
  };
 
  const History: Pages[]  = [
-  {id: 1, name: 'Added Dishes', component: RecentlyAdd, icon:<MaterialIcons name='shopping-bag' color={'"#f5ece0ff"'} size={33}/>},
-  {id: 1, name: 'Bin', component: Bin, icon:<Ionicons name="trash-outline" color={"#f0e9dfff"} size={33}/>},
-  {id: 1, name: 'Cart', component: DetailedCart, icon:<FontAwesome name='opencart' color={"#e6d8c6ff"} size={33}/>},
+  {id: 1, name: 'Added Dishes', path: '/EditPages/Add', icon:<MaterialIcons name='shopping-bag' color={'"#f5ece0ff"'} size={33}/>},
+  {id: 1, name: 'Bin', path:'/History/RemovedItems' , icon:<Ionicons name="trash-outline" color={"#f0e9dfff"} size={33}/>},
+  {id: 1, name: 'Cart', path:'/History/ChosenItems' , icon:<FontAwesome name='opencart' color={"#e6d8c6ff"} size={33}/>},
  ]
 
 export const unstable_settings = {
@@ -85,8 +89,7 @@ export default function RootLayout() {
 
 function DrawerScroller(){
 
-  const router= useRouter();//The navigation function which will allow the tabs navigate to their respective page
-
+  const navigate= useNavigation();
   const [expandSections, setExpandSections] = useState({
     History: false
   });
@@ -141,7 +144,7 @@ function DrawerScroller(){
           alignSelf: 'center'
         }
       }
-      onPress={() => router.navigate(item.component)}
+      onPress={() => router.push(item.path)}
       
       />
 
