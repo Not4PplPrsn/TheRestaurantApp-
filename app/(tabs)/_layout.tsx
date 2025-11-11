@@ -1,15 +1,17 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs, useNavigation/**Allow for the creaton of a new function  */ } from 'expo-router';
+import React, { useState, useRef, useEffect, createContext } from 'react';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+// calling the function 
 
+
+export default function TabLayout() {
   return (
+
     <Tabs
     
       screenOptions={{
@@ -84,6 +86,6 @@ export default function TabLayout() {
         title: 'Menu',
         tabBarIcon: ({color})  =>  <AntDesign size={25} name="select" color={color}/>
       }}/>
-    </Tabs>
+    </Tabs> 
   );
 }
