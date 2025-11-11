@@ -1,18 +1,41 @@
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
-import { useRoute } from '@react-navigation/native';
 import { Drawer } from 'expo-router/drawer';
-import React from 'react';
+import React, { useState } from 'react';
 import 'react-native-reanimated';
 import { useRouter } from 'expo-router';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Switch } from 'react-native-gesture-handler';
+import { MaterialIcons, Ionicons, Entypo, FontAwesome } from '@expo/vector-icons';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+//The pages for the history tab in the drawer
+import RecentlyAdd from './History/RecentlyAdded';
+import Bin from './History/RemovedItems';
+import DetailedCart from './History/ChosenItems';
+import { ReduceMotion } from 'react-native-reanimated';
+
+// The array where the history is stored.
+ 
+// The type handling for the array
+ type Pages= {
+  id: number
+  name: string,
+  component: any,
+  icon: any
+  
+
+ };
+
+ const History: Pages[]  = [
+  {id: 1, name: 'Added Dishes', component: RecentlyAdd, icon:<MaterialIcons name='shopping-bag' color={'"#f5ece0ff"'} size={33}/>},
+  {id: 1, name: 'Bin', component: Bin, icon:<Ionicons name="trash-outline" color={"#f0e9dfff"} size={33}/>},
+  {id: 1, name: 'Cart', component: DetailedCart, icon:<FontAwesome name='opencart' color={"#e6d8c6ff"} size={33}/>},
+ ]
 
 export const unstable_settings = {
   anchor: '(tabs)',
 };
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
 
   return (
     <Drawer
@@ -34,7 +57,7 @@ export default function RootLayout() {
       drawerPosition: 'right',
       drawerLabelStyle: { textAlign: 'right', paddingRight: 10, paddingLeft: 0 ,},
       headerTitleAlign: 'left', 
-      drawerActiveTintColor:'rgba(236, 137, 124, 1)',
+      drawerActiveTintColor:'rgba(61, 247, 123, 1)',
       drawerInactiveTintColor: '#fff',
 
       headerStyle:{
@@ -48,7 +71,9 @@ export default function RootLayout() {
         alignSelf: "center",
         alignContent: 'center',
         textAlign: 'center'
-      }
+      },
+      
+
       
 
 
@@ -59,10 +84,30 @@ export default function RootLayout() {
 }
 
 function DrawerScroller(){
+
   const router= useRouter();//The navigation function which will allow the tabs navigate to their respective page
+
+  const [expandSections, setExpandSections] = useState({
+    History: false
+  });
+  const [items, setItems] = useState([
+    History.map(item => ({...item, visible: true })),
+
+  ]);
+    const toggleSection = (key: keyof typeof expandSections) => {/**This is the function for the  the the toggling of items for the opening and closing of  the the item in the drawer items  */
+    setExpandSections((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
   return(
-    <DrawerContentScrollView>
+    <DrawerContentScrollView
+    
+
+    >
 <DrawerItem
+  
   label="Main"
   labelStyle={{ textAlign: 'right', color: "#ffff", textTransform: 'uppercase' }}
 
@@ -71,18 +116,40 @@ function DrawerScroller(){
 
   />
 
-  <DrawerItem
-    label = "Add New dishes"
-    labelStyle= {{textAlign: 'right',color: '#fff', textTransform: 'uppercase'}}
-    onPress ={() => router.push('/EditPages/Add')}
-  />
+      <View style={{flexDirection: 'row-reverse'}}>
+    <Text style={{color: "#ffff", textTransform: 'uppercase', fontWeight: '700', padding: 21}}>History</Text>
+    <Switch
+      value={expandSections.History}
+      onValueChange={() => toggleSection('History')}
+    />
+  </View>
 
-  <DrawerItem
-  label= "Menu Selection"
-      labelStyle= {{textAlign: 'right', color:"#ffff", textTransform: "uppercase"}}
 
-    onPress={() => router.push('/Select')}
-  />
+  { expandSections.History&&
+  
+    History.map(item => (
+
+      <DrawerItem
+      key={item.id}
+      label= {item.name}
+      labelStyle={
+        {
+          fontFamily: "monospace",
+          textTransform: 'uppercase',
+          fontWeight: '900',
+          color: '#fff',
+          alignSelf: 'center'
+        }
+      }
+      onPress={() => router.navigate(item.component)}
+      
+      />
+
+    ))}
+
+  
+
+
 
     </DrawerContentScrollView>
   );
