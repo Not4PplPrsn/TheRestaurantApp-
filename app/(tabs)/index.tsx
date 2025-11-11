@@ -1,14 +1,16 @@
+import { useDishStore } from '@/functions/DishesEntries';
 import { Image, ImageBackground } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useDishStore } from '@/functions/DishesEntries';
 export default function HomeScreen() {
+  const entries = useDishStore((state) => state.entries);
+
   return (
 
   <ScrollView>
       <ImageBackground
   source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')}
-  style={[StyleSheet.absoluteFill,{opacity:60} ]}
+  style={[StyleSheet.absoluteFill,{opacity:60,} ]}
   />
 
   <LinearGradient
@@ -19,65 +21,101 @@ export default function HomeScreen() {
   />
       <Text style={styles.heading}>Welcome</Text>
 
+
+    <Text style={styles.heading2} >Entrées</Text>
+
   <View style={styles.courseContainer}>
     
-    <Text style={styles.heading2} >Entrées</Text>
-      <View style={styles.dishContainer}>
+    {entries
+    
+    .filter((entry) => entry.courseName === 'Entree') /**Will Share based upon the course name */
+    .slice(0,2)
+    .map((entry) => (
+      <View style={styles.dishContainer} key={entry.id}>
         <View>
-          <Image/>
-          <Text></Text>
+          <Text style={styles.dishNames}>{entry.dishName}</Text>
+
+          <Image source={
+            entry.image
+          }
+            style={styles.dishImage}/>
         </View>
         <View >
         <Text style={styles.heading3}>Description</Text>
-          <Text>
-            
-            
+          <Text style={styles.descriptionText}>
+            {entry.description}         
           </Text>
         </View>
         <View>
-          <Text></Text>
+          <Text>R  {entry.price}</Text>
         </View>
         </View>
-      </View>
-  <View style={styles.courseContainer}>
-
-    <Text style={styles.heading2}>Mains </Text>
-
-        <View>
-        <Image/>
-        <Text></Text>
-        </View>
-                <View >
-        <Text >Description</Text>
-          <Text>
-            
-            
-          </Text>
-        </View>
-        <View>
-          <Text></Text>
-        </View>
-
-
+      ))}
       </View>
 
 
+     <Text style={styles.heading2}>Mains </Text>
   <View style={styles.courseContainer}>
-    <Text style={styles.heading2}>Desserts</Text>
+
+ 
+      
+    {entries
+    
+    .filter((entry) => entry.courseName === 'Main')
+    .slice(0,2)
+    .map((entry) => (
+      <View style={styles.dishContainer} key={entry.id}>
         <View>
-          <Image/>
-          <Text></Text>
-        </View> <Text></Text>
+          <Text style={styles.dishNames} >{entry.dishName}</Text>
+
+          <Image source={
+            entry.image
+          }
+            style={styles.dishImage}/>
+        </View>
         <View >
-        <Text>Description</Text>
-          <Text>
-            
-            
+        <Text style={styles.heading3}>Description</Text>
+          <Text style={styles.descriptionText}>
+            {entry.description}         
           </Text>
         </View>
         <View>
-          <Text></Text>
+          <Text>R  {entry.price}</Text>
         </View>
+        </View>
+      ))}
+
+
+      </View>
+
+    <Text style={styles.heading2}>Desserts</Text>
+  <View style={styles.courseContainer}>
+
+    {entries
+    
+    .filter((entry) => entry.courseName === 'Dessert')
+    .slice(0,2)
+    .map((entry) => (
+      <View style={styles.dishContainer} key={entry.id}>
+        <View>
+          <Text style={styles.dishNames}>{entry.dishName}</Text>
+
+          <Image source={
+            entry.image
+          }
+            style={styles.dishImage}/>
+        </View>
+        <View >
+        <Text style={styles.heading3}>Description</Text>
+          <Text style={styles.descriptionText}>
+            {entry.description}         
+          </Text>
+        </View>
+        <View>
+          <Text>R  {entry.price}</Text>
+        </View>
+        </View>
+      ))}
       </View>
       
       
@@ -90,21 +128,25 @@ const styles = StyleSheet.create({
 courseContainer: {
   backgroundColor: '#f1b93fff',
   alignSelf: 'center',
-  margin: 50,
-  width: 350,
-   height: 180,
-   padding: 20,
+  marginBottom:15,
+  width: 360,
+   height: 340,
+   padding: 5,
    borderTopRightRadius:20,
    borderBottomRightRadius:20,
-   borderBottomLeftRadius:20
+   borderBottomLeftRadius:20,
+   flexDirection: 'row'
 
   
 },
 dishContainer:{
   backgroundColor: '#00000',
-  margin: 2.3,
-  shadowColor:'#ffff',
-  width: 100,
+  margin: 0.5,
+  isolation:'isolate',
+  width: 170,
+  
+  
+
   
   
 },
@@ -112,7 +154,12 @@ descriptionText:{
   fontFamily: 'Inter',
   fontWeight: '500',
   alignSelf: 'flex-start',
-  margin: 10,
+  margin: 4,
+  elevation: 8,
+  fontSize: 9,
+  width: 160,
+  flexWrap:'wrap',
+  justifyContent:'flex-start'
 },
 heading:{
   fontSize: 35,
@@ -137,6 +184,9 @@ heading2:{
   fontSize: 20,
   color: '#ffff',
   fontWeight: '600',
+  marginTop: 30,
+  marginBottom:3,
+  marginStart: 16
 },
 textContainer:{
   
@@ -144,6 +194,24 @@ textContainer:{
 heading3:{
   fontFamily: 'Time New Roman'
 },
+dishImage:{
+  width: 70,
+  height: 75,
+  alignSelf: 'flex-start',
+  margin: 6,
+  borderTopLeftRadius: 25.5,
+  borderTopRightRadius: 25.5,
+  borderBottomLeftRadius: 25.5,
+  borderBottomRightRadius: 25.5
+  
+},
+dishNames: {
+  fontSize: 10,
+  fontWeight: '700',
+  fontStyle: 'italic',
+  color: '#fff',
+  marginTop: 0.05
+}
 
 
 });
