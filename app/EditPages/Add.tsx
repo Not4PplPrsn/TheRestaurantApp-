@@ -135,7 +135,7 @@ if (wordCount < 50 || wordCount > 70) {
 
 
 
-  <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+  <View style={{flexDirection: 'row-reverse', justifyContent: 'space-between'}}>
     <TouchableOpacity
     onPress={pickImage} >
     <View style={styles.imagePickerButton}>
@@ -150,12 +150,15 @@ if (wordCount < 50 || wordCount > 70) {
 
 </View >
 
-          <View>
+          <View style={{flexDirection: 'row'}} >
+            <Text style={{fontSize: 15}}>R</Text>
               <TextInput
-              placeholder='Enter the Price'
+              placeholder='Enter the Price R '
              onChangeText={(text) => setNewPrice(Number(text))}
               keyboardType='numeric'
               value={newPrice.toString()}
+              style= {styles.PriceContainer}
+              
               />
           </View>
 
@@ -164,6 +167,7 @@ if (wordCount < 50 || wordCount > 70) {
                 <TextInput placeholder='Add Dish name'
                 value={dishName}
                 onChangeText={setDishName}
+                style={styles.dishNames}
                                 
                 />
 <TextInput
@@ -180,23 +184,26 @@ style={styles.theDescription}
                 <RadioButton.Group
                 onValueChange={(newValue) => setSelectedCourse(newValue)}
                 value={selectedCourse}
-                
+                               
                 
                 >
-                  <RadioButton.Item label='Entrée' value='Entrée' labelStyle= {{margin: 1}}/>
-                  <RadioButton.Item label='Main' value='Main'/>
-                  <RadioButton.Item label='Dessert' value='Dessert'/>
-              
+                  <View style = {{ flexDirection: 'column', height: 60, padding:2, alignSelf:'flex-start'}}>
+                  <RadioButton.Item label='Entrée' value='Entrée' labelStyle= {styles.radioButtonGroup}/>
+                  <RadioButton.Item label='Main' value='Main' labelStyle= {styles.radioButtonGroup}/>
+                  <RadioButton.Item label='Dessert' value='Dessert' labelStyle= {styles.radioButtonGroup}/>
+                  </View>
                 </RadioButton.Group>
               </View>
 </View>      
 </View> 
-        <View style={{flexBasis: 'auto', alignSelf: 'center', margin: 30}}>
+
+
+        <View style={{flexBasis: 'auto', alignSelf: 'center', margin:10}}>
                 <TouchableOpacity
                 onPress={handleAdd}
                 >
-                  <View>
-                    <MaterialIcons name="add-circle" size={55} color={'#aaf095ff'}/>
+                  <View style= {{width:60, height: 60, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 20, alignItems: 'center' }}>
+                    <MaterialIcons name="add-circle" size={55} color={'#0a813ca2'}/>
                   </View>
                 </TouchableOpacity>
         </View>
@@ -294,25 +301,53 @@ pickedImageDisplay: {
 FormContainer: {
   height: 490, 
   width: 330, 
-  padding: 10, 
-  backgroundColor: '#f3b25ca9',
+  padding: 3, 
+  backgroundColor: '#f3b25ce0',
   borderBottomRightRadius: 20.,
   borderTopLeftRadius: 20,
-  margin: 15, 
+  marginBottom:2 ,
+  marginTop: 10, 
   alignSelf: 'center'
 },
 theDescription:{
-  width: 250,
+  width: 270,
   height: 70,
   backgroundColor: '#c52b1d8c',
   borderRadius: 12,
-  fontSize: 10
+  fontSize: 10.75
 },
 radioButtonGroup:{
-  fontSize: 15,
-  fontStyle: 'italic',
+  fontSize: 13,
+  fontWeight: 'bold',
   fontFamily: 'monospace',
-  alignItems: 'flex-start'
+  alignItems: 'center',
+  padding: 2
+},
+dishNames: {
+  fontSize: 12,
+  fontWeight: '700',
+  fontStyle: 'italic',
+  color: '#fff',
+  margin: 3,
+  backgroundColor: '#c52b1d70',
+  padding: 5.7,
+  height: 'auto',
+  width: 150,
+    borderRadius: 6,
+
+},
+PriceContainer:{
+    height: 'auto',
+  width: 150,
+    backgroundColor: '#c52b1d6e',
+  padding: 5.7,
+  margin: 3,
+      borderRadius: 6,
+    marginBottom: 15
+
+
+
 }
+
 
 });
