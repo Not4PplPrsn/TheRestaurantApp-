@@ -3,6 +3,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { DishEntries } from '@/functions/DishesEntries';
+//This will be used in the check boxes for the dishes  
+import { Checkbox } from 'react-native-paper';
+
 
 export default function DishSelection() {
     return(
