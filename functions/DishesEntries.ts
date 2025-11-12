@@ -1,7 +1,7 @@
 import { create } from 'zustand';// allow for the transfer of these functions between the typescript files 
 import { dishes } from './theDishArray';// these are the items which are
 import { Trash } from './DeletedDishes';
-
+ import { Cart } from './Cart';
 export type DishEntries = { // The kinds of the information that can fill the array elements
   id: number;
   dishName: string;
@@ -95,4 +95,56 @@ restoreDish: (id: number) => {
 
 
 
+}));
+
+
+type CartItems={
+   id: number;
+  dishName: string;
+  courseName: string;
+  description: string;
+  price: number;
+  image: any;
+  isDeleted: boolean;
+  quantity: number;
+}
+
+type CartStore = {
+ cart: CartItems[];
+ addToCart: (entry: CartItems)=> void;
+ removeFromCart: (id: number) => void;
+ clearCart: () => void
+
+
+}
+
+
+
+
+export const useCartStore = create<CartStore>((set, get) => ({
+  cart: [],
+  addToCart: (dish) => {
+    const existing = get().cart.find((item) => item.id === dish.id);
+    if (existing) {
+      set((state) => ({
+        cart: state.cart.map((item) =>
+          item.id === dish.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      }));
+    } else {
+      set((state) => ({
+        cart: [...state.cart, { ...dish, quantity: 1 }],
+      }));
+    }
+  },
+
+  removeFromCart: (id) => {
+    set((state) => ({
+      cart: state.cart.filter((item) => item.id !== id),
+    }));
+  },
+
+  clearCart: () => set({ cart: [] }),
 }));
