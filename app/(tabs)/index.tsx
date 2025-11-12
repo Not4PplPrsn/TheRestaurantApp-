@@ -12,7 +12,7 @@ import { useContext } from 'react';
 export default function HomeScreen() {
   const entries = useDishStore((state) => state.entries);
   /**stored the function in a new variable */
-   const { onTouch } = useTabBarInactivity(); 
+   const { onTouch } = useTabBarInactivity(); /**Calling the functions in need for the scroll view so the bottom tab will disappear */
 
   return (
 
