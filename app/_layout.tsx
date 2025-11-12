@@ -30,7 +30,6 @@ import { ReduceMotion } from 'react-native-reanimated';
  };
 
  const History: Pages[]  = [
-  {id: 1, name: 'Added Dishes', path: '/EditPages/Add', icon:<MaterialIcons name='shopping-bag' color={'"#f5ece0ff"'} size={33}/>},
   {id: 1, name: 'Bin', path:'/History/RemovedItems' , icon:<Ionicons name="trash-outline" color={"#f0e9dfff"} size={33}/>},
   {id: 1, name: 'Cart', path:'/History/ChosenItems' , icon:<FontAwesome name='opencart' color={"#e6d8c6ff"} size={33}/>},
  ]
