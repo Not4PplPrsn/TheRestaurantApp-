@@ -3,9 +3,16 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React,{useState} from 'react';
+
+// The function for the items 
+import { useDishStore } from '@/functions/DishesEntries';
+
+
 const router = useRouter();
 
 export default function Redact(){
+
+
     return(
   <ImageBackground
   source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
