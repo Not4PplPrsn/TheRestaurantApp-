@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View, Button, Image, ScrollView, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, ScrollView, TouchableOpacity, TextInput, } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React,{useState} from 'react';
 
+/**This will allow the user to add images of the dishes  */
+import * as ImagePicker from 'expo-image-picker';
 import { useDishStore } from '@/functions/DishesEntries';// calling the function 
+import { RadioButton } from 'react-native-paper';
+import { Ionicons } from '@expo/vector-icons';
 const router = useRouter(); // function for navigation
 
 
@@ -12,6 +16,23 @@ export default function Added(){
 
   const addEntries = useDishStore((state) => state.addDishes);
     
+  const [checked, setChecked] = useState();//these are meant to store the responses 
+
+  const [selectedCourse, setSelectedCourse] = useState('Entrée');//standardized the radio buttons 
+
+  const [selectedImage, setSelectedImage] = useState<any>(null);// set image picker to an empty state
+
+    const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,//only allows images no other file types 
+      allowsEditing: false,// does not let the user crop or adjust the image.
+      quality: 1,//opens the image library on the device
+    });
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    }
+  }
 
 
     return(
@@ -51,13 +72,38 @@ export default function Added(){
       </View>
 
 
+
+          
+
           <Text style={styles.heading}>Editing</Text>
     
+    <View>
+      <Button title="Select an Image" onPress={pickImage} />
+    </View>
+  <View>        
+{selectedImage && (
+    <Image source={{ uri: selectedImage }}/>)}
+
+
+                
+                <TextInput placeholder='Add Dish name'/>
+              <TextInput placeholder='Write a description that is at least 50 words long.'/>
+
+
+              {/**The radio button for the courses */}
               <View>
+                <RadioButton.Group
+                onValueChange={(newValue) => setSelectedCourse(newValue)}
+                value={selectedCourse}
+                
+                >
+                  <RadioButton.Item label='Entrée' value='Entrée' labelStyle= {{margin: 1}}/>
+                  <RadioButton.Item label='Main' value='Main'/>
+                  <RadioButton.Item label='Dessert' value='Dessert'/>
               
-
+                </RadioButton.Group>
               </View>
-
+</View>
       
       </ImageBackground>
     );
