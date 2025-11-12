@@ -194,7 +194,8 @@ ImageDisplay: {
   width : 280,
   height: 120,
   borderRadius: 7,
-  margin : 12
+  margin : 12,
+  alignSelf: 'center'
   
 },
 
