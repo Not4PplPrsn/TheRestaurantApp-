@@ -2,15 +2,23 @@ import { StyleSheet, Text, View, Button, Image, ScrollView, TouchableOpacity, } 
 import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import { useRouter } from 'expo-router';
-import React,{useState} from 'react';
+import React,{use, useState} from 'react';
 
 // The function for the items 
 import { useDishStore } from '@/functions/DishesEntries';
 
+import { MaterialIcons } from '@expo/vector-icons';
+import { dishes } from '@/functions/theDishArray';
 
 const router = useRouter();
 
+
+
+
+
 export default function Redact(){
+const removeItems = useDishStore ((state) => state.removeDishes); // deleted items
+const entries = useDishStore ((state) => state.entries )
 
 
     return(
@@ -48,11 +56,62 @@ export default function Redact(){
         </View>
       </TouchableOpacity>
       </View>
-
-
           <Text style={styles.heading}>Editing</Text>
-    
-      <View></View>
+
+      <ScrollView
+      horizontal={true}
+      showsHorizontalScrollIndicator={true}
+      style= {{ height: 'auto', width : 'auto'}}
+      >
+          
+    {entries.map((dish) => ( /**The display for the array items so the user can see the items they wish to delete */
+
+      <><View style = {{flexDirection: 'column' , marginLeft: 30}}
+      key={dish.id}>
+      <View style={styles.theItemContainer}>
+
+
+        <Image
+          aria-label='Dish Images'
+          source={dish.image} 
+          style={styles.ImageDisplay}/>
+
+        <View>
+          <Text style={styles.heading2}>Dish Name</Text>
+          <Text>{dish.dishName}</Text>
+        </View>
+
+        <View>
+          <Text style={styles.heading2}>Description</Text>
+          <Text>{dish.description}</Text>
+        </View>
+
+        <View>
+          <Text style={styles.heading2}>Course</Text>
+          <Text>{dish.courseName}</Text>
+        </View>
+        <Text>R{dish.price}</Text>
+      </View>
+      
+      <View style={{ flexBasis: 'auto', alignSelf: 'center', margin:3 }}>
+          <TouchableOpacity
+            onPress={() => removeItems(dish.id)}
+          >
+            <View style={{ width: 45, height: 45, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 5, alignItems: 'center' }}>
+              <MaterialIcons name="remove-circle" size={40} color={'#da2846a2'} />
+            </View>
+          </TouchableOpacity>
+        </View></View>
+        </>
+      ))}
+      </ScrollView>
+
+      
+      
+
+
+
+      
 
       
       </ImageBackground>
@@ -70,17 +129,11 @@ disheContainer:{
   margin: 2.3,
   
 },
-descriptionText:{
-  fontFamily: 'Inter',
-  fontWeight: '500',
-  alignSelf: 'flex-start',
-  margin: 10,
-},
 heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 20,
+  marginTop: 10,
   alignSelf: 'center',
   color: '#3b3838ff',
   width:'auto',
@@ -97,9 +150,11 @@ baseLineText:{
   color: '#332d2dff'
 },
 heading2:{
-  fontSize: 20,
-  color: '#272424fff',
-  fontWeight: '600'
+  fontSize: 13,
+  color: '#fff',
+  fontWeight: '600',
+  margin: 10
+
 },
 addButton:{
   width: 76,
@@ -122,7 +177,27 @@ buttonText: {
   margin: 5,
   fontWeight:'700',
   fontFamily: 'Roboto'
-}
+},
+theItemContainer: {
+  height: 'auto', 
+  width: 330, 
+  padding: 3, 
+  backgroundColor: '#f3b25ce0',
+  borderBottomRightRadius: 20.,
+  borderTopLeftRadius: 20,
+  marginBottom:2,
+  marginTop: 2, 
+  alignSelf: 'center',
+  margin:5,
+},
+ImageDisplay: {
+  width : 280,
+  height: 120,
+  borderRadius: 7,
+  margin : 12
+  
+},
+
 
 
 });
