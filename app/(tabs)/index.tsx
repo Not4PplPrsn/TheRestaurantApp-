@@ -143,7 +143,7 @@ courseContainer: {
   alignSelf: 'center',
   marginBottom:15,
   width: 360,
-   height: 245,
+   height: 'auto',
    padding: 5,
    borderTopRightRadius:20,
    borderBottomRightRadius:20,
