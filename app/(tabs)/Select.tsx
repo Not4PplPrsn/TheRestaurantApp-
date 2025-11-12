@@ -1,19 +1,24 @@
-import { StyleSheet, Text, View, Button, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, ScrollView, FlatList } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { DishEntries } from '@/functions/DishesEntries';
+
+import { useState } from 'react';
 //This will be used in the check boxes for the dishes  
 import { Checkbox } from 'react-native-paper';
 
 
 export default function DishSelection() {
     return(
+      <ImageBackground
+      source = {require('../../assets/images/Backgrounds/TableSetting2.jpg')}>
         <View>
-            <Text>
-                Selection 
+            <Text style ={styles.heading}>
+                Menu
             </Text>
         </View>
+      </ImageBackground>
     );
 }
 
@@ -35,11 +40,19 @@ descriptionText:{
   margin: 10,
 },
 heading:{
-  fontSize: 13.5,
+  fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginBottom: 5,
-  alignSelf: 'center'
+  marginTop: 20,
+  alignSelf: 'center',
+  color: '#3b3838ff',
+  width:'auto',
+  borderBottomColor: '#ee9c9ce8',
+  borderBottomWidth: 5,
+  lineHeight: 70,
+  alignItems: 'center',
+  alignContent: 'center'
+  
 },
 baseLineText:{
   fontSize: 5,
