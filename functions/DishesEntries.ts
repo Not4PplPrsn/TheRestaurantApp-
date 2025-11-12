@@ -9,7 +9,7 @@ export type DishEntries = { // The kinds of the information that can fill the ar
   description: string;
   price: number;
   image: any;
-  isDeleted: boolean
+  isDeleted: boolean;
 };
 
 type DishStore = {
@@ -50,14 +50,15 @@ removeDishes: (id) =>
     const dishToDelete = state.entries.find((dish) => dish.id === id);
     if (!dishToDelete) return state;
 
-    // Ensure bin exists and dish has isDeleted flag
-    const updatedDish = { ...dishToDelete, isDeleted: true, deletedAt: Date.now() };
+    const updatedDish = { ...dishToDelete, isDeleted: true };
 
     return {
       entries: state.entries.filter((dish) => dish.id !== id),
-      bin: [...state.bin ?? [], updatedDish],//will and store the items in the array stored in the bin attribute
+      bin: [...state.bin ?? [], updatedDish],
     };
-  }),  getTotal: () => {
+  }), 
+  
+  getTotal: () => {
     const { entries } = get(); // This will add the prices of the selection
     return entries.reduce((acc, dish) => acc + dish.price, 0);
   },
