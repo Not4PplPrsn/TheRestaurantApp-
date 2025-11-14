@@ -33,12 +33,13 @@ export default function TabLayout() {
           
         },
         tabBarInactiveTintColor: '#e0cacaff',
-        tabBarActiveTintColor: 'rgba(236, 137, 124, 1)',
+        tabBarActiveTintColor: 'rgba(238, 186, 16, 0.84)',
         headerTitleAlign: 'center',
         headerStyle:{
           margin: 20,
           backgroundColor: 'transparent',
-          position: 'static'
+          position: 'static',
+          
           
 
           
@@ -53,7 +54,9 @@ export default function TabLayout() {
             />
           </View>)/**Added the image as the headerTitle so that it will function as logo in the header. */,
           headerTitleAlign:'left',
-        
+        tabBarLabelStyle:{
+          fontFamily: 'Inter'
+        }
         
       }}
       
