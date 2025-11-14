@@ -264,7 +264,7 @@ heading2:{
 addButton:{
   width: 76,
   height: 30,
-  backgroundColor: '#0b81a5ff',
+  backgroundColor: '#ffffffff',
   margin: 2,
   borderTopLeftRadius:20,
   borderBottomLeftRadius:20,
@@ -272,7 +272,7 @@ addButton:{
 removeButton:{
   width: 76,
   height: 30,
-  backgroundColor: '#922546ff',
+  backgroundColor: '#f7f6f6ff',
   margin: 2,
   borderTopRightRadius: 20,
   borderBottomRightRadius: 20,
