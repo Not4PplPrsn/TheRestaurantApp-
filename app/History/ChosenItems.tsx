@@ -7,48 +7,9 @@ const router = useRouter();
 
 export default function DetailedCart(){
     return(
-  <ImageBackground
-  source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
-        style={[StyleSheet.absoluteFill,{opacity:20} ]}
-
-  
-  >
-      <LinearGradient
-  colors={['#e2d8d898', '#e06e11a9']}
-    start={{x:0.15, y:0.26}}
-  end={{x:0.26, y:1.06}}
-
-      style={[StyleSheet.absoluteFill,{opacity:20} ]}
-
-
- />
-
-      {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
-      <TouchableOpacity
-      onPress={() => router.push('/EditPages/Add')}
-      >
-        <View style={styles.addButton}>
-          <Text style={styles.buttonText} >Add</Text>
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-      onPress={() => router.push('/EditPages/Redact')}
-      >
-        <View style={styles.removeButton}>
-          <Text style={styles.buttonText}>Remove</Text>
-        </View>
-      </TouchableOpacity>
+      <View>
+        <Text>NEw</Text>
       </View>
-
-
-          <Text style={styles.heading}>Editing</Text>
-    
-      <View></View>
-
-      
-      </ImageBackground>
     );
 }
 
