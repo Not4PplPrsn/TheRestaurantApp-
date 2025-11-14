@@ -19,7 +19,7 @@ export default function DetailedCart(){
    const totalCart = useCartStore((state) => state.getTotal)
     return(
   <ImageBackground
-  source={require('../../assets/images/Backgrounds/TableSetting3.jpg')}
+  source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
         style={[StyleSheet.absoluteFill,{opacity:20} ]}
 
   

@@ -49,7 +49,7 @@ export default function TabLayout() {
           headerShadowVisible: false, // removes shadow/elevation
           headerTitle: () => (<View>
             <Image
-            source ={require('../../assets/images/TheLogo.png')}
+            source ={require('../../assets/images/TheLogo.png') /**(ChatGPT, 2025) */}
             style ={{height: 50, width: 50, borderRadius:25}}
             />
           </View>)/**Added the image as the headerTitle so that it will function as logo in the header. */,

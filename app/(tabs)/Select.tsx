@@ -22,22 +22,20 @@ import { FontAwesome } from '@expo/vector-icons';
 export default function DishSelection() {
 
      const { onTouch } = useTabBarInactivity(); /**Calling the functions in need for the scroll view so the bottom tab will disappear */
-
+/**Standardizing all function and storage units for data sets */
   const { entries} = useDishStore();
 
  const addToCart = useCartStore((state) => state.addToCart);
 
-const [addedItems, setAddedItems] = useState<DishEntries[]>([]);
 
-
-const [selectedCourse, setSelectedCourse] = useState<CourseType>('All');
+const [selectedCourse, setSelectedCourse] = useState<CourseType>('All');/**(W3Schools, 2025) */
 
 const [selectedItems, setSelectedItems] = useState<number[]>([]);
-const [totalPrice, setTotalPrice] = useState(0);;
-    const [menuVisible, setMenuVisible] = useState(false);
+const [totalPrice, setTotalPrice] = useState(0);;/**(W3Schools, 2025) */
+    const [menuVisible, setMenuVisible] = useState(false);/**(W3Schools, 2025) */
 
 
-const courses: CourseType[] = ['All', 'Entrée', 'Main', 'Dessert'];
+const courses: CourseType[] = ['All', 'Entrée', 'Main', 'Dessert']; /**(W3Schools, 2025) */
 
 const filteredItems = entries.filter((dish) =>
   selectedCourse === 'All'
@@ -59,13 +57,13 @@ const filteredItems = entries.filter((dish) =>
   };
   
 const toggleSelection = (dish: DishEntries) => {
-  const isSelected = selectedItems.includes(dish.id);
-  let updatedSelection: number[];
+  const isSelected = selectedItems.includes(dish.id); /**This handle the selection by filtering item by id */
+  let updatedSelection: number[]; /**Stpres the IDs of all selected items */
 
   if (isSelected) {
-    updatedSelection = selectedItems.filter((id) => id !== dish.id);
+    updatedSelection = selectedItems.filter((id) => id !== dish.id);/**Does keep the selected item toggled  */
   } else {
-    updatedSelection = [...selectedItems, dish.id];
+    updatedSelection = [...selectedItems, dish.id]; /** stores selected item in a package  */
   }
 
   setSelectedItems(updatedSelection);
@@ -99,7 +97,7 @@ const handleAddSelectedItems = () => {
 
       <PaperProvider>
       <ImageBackground
-      source = {require('../../assets/images/Backgrounds/TableSetting2.jpg')}
+      source = {require('../../assets/images/Backgrounds/TableSetting3.jpg')/**(thebarn_in_thefarm, 2025) */}
         style={[StyleSheet.absoluteFill,{opacity:60,} ]}
 
       
@@ -108,7 +106,7 @@ const handleAddSelectedItems = () => {
           colors={['#e2d8d879', '#c52b1db6']}
           start={{x:0.15, y:0.26}}
           end={{x:0.26, y:1.06}}
-          style={[StyleSheet.absoluteFill, ]}
+          style={[StyleSheet.absoluteFill, ]} /**(W3Schools, 2025) */
         
         />
         
@@ -116,7 +114,7 @@ const handleAddSelectedItems = () => {
                 Menu
             </Text>
 
-<View style={{flexDirection : 'row'}}>
+<View style={{flexDirection : 'row'}} >
  <View style= {{margin:12}}>           
 <Menu //(W3Schools, 2025)
         // this is when the button is inactive
@@ -228,7 +226,7 @@ const handleAddSelectedItems = () => {
     );
   }}
 
-  keyExtractor={(item) => item.id.toString()} // turns all items into string form
+  keyExtractor={(item) => item.id.toString()/**(W3Schools, 2025) */} // turns all items into string form
 /></View>
 
   

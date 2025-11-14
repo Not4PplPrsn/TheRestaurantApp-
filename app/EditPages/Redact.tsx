@@ -23,7 +23,7 @@ const entries = useDishStore ((state) => state.entries )
 
     return(
   <ImageBackground
-  source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
+  source={require('../../assets/images/Backgrounds/TableSetting2.jpg')/**(thebarn_in_thefarm, 2025) */}
         style={[StyleSheet.absoluteFill,{opacity:20} ]}
 
   

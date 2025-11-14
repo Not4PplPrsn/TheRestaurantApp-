@@ -31,7 +31,7 @@ export default function Bin(){
 
     return(
   <ImageBackground
-  source={require('../../assets/images/Backgrounds/TableSetting3.jpg')}
+  source={require('../../assets/images/Backgrounds/TableSetting3.jpg')/**(thebarn_in_thefarm, 2025) */}
         style={[StyleSheet.absoluteFill,{opacity:20} ]}
 
   

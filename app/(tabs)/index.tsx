@@ -18,7 +18,7 @@ export default function HomeScreen() {
   return (
 
       <ImageBackground
-  source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')}
+  source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')/**(Rust en Vrede, 2025) */}
   style={[StyleSheet.absoluteFill,{opacity:60,} ]}
   >
 
@@ -39,7 +39,7 @@ export default function HomeScreen() {
 
   <View style={styles.courseContainer}>
     
-    {entries
+    {entries/**(W3Schools, 2025) */
     
     .filter((entry) => entry.courseName === 'Entrée') /**Will Share based upon the course name */
     .slice(0,2)
@@ -72,7 +72,7 @@ export default function HomeScreen() {
 
  
       
-    {entries
+    {entries /**(W3Schools, 2025) */
     
     .filter((entry) => entry.courseName === 'Main')
     .slice(0,2)
@@ -128,7 +128,7 @@ export default function HomeScreen() {
           <Text>R  {entry.price}</Text>
         </View>
         </View>
-      ))}
+      ))/**(W3Schools, 2025) */}
       </View>
       </ScrollView>
       

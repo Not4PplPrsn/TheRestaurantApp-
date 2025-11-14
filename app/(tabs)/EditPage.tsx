@@ -6,10 +6,10 @@ import React,{useState} from 'react';
 const router = useRouter();
 
 export default function Edit(){
-    return(
+    return(/**(W3Schools, 2025) */
   <ImageBackground
-  source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
-        style={[StyleSheet.absoluteFill,{opacity:20} ]}
+  source={require('../../assets/images/Backgrounds/TableSetting3.jpg')/**(thebarn_in_thefarm, 2025) */}
+        style={[StyleSheet.absoluteFill,{opacity:20} ]} 
 
   
   >
@@ -18,7 +18,7 @@ export default function Edit(){
     start={{x:0.15, y:0.26}}
   end={{x:0.26, y:1.06}}
 
-      style={[StyleSheet.absoluteFill,{opacity:20} ]}
+      style={[StyleSheet.absoluteFill,{opacity:20} ]}/**(W3Schools, 2025) */
 
 
  />
@@ -39,12 +39,12 @@ export default function Edit(){
       </TouchableOpacity>
 
       <TouchableOpacity
-      onPress={() => router.push('/EditPages/Redact')}
+      onPress={() => router.push('/EditPages/Redact')}/**(W3Schools, 2025) */
       >
         <View style={styles.removeButton}>
           <Text style={styles.buttonText}>Remove</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity >
       </View>
       
       </ImageBackground>
