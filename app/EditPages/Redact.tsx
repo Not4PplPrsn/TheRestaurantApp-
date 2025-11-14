@@ -38,7 +38,7 @@ const entries = useDishStore ((state) => state.entries )
 
  />
          <TouchableOpacity
-        onPress={() => router.back()}>
+        onPress={() => router.back()} /**This will return the user to the next screen  */> 
           <View> 
             <Entypo name = "chevron-left" color={"#0fb333ff"} size={55}/>
           </View>
@@ -46,7 +46,7 @@ const entries = useDishStore ((state) => state.entries )
 
 
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop: 20, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       >
@@ -102,7 +102,9 @@ const entries = useDishStore ((state) => state.entries )
       
       <View style={{ flexBasis: 'auto', alignSelf: 'center', margin:3 }}>
           <TouchableOpacity
-            onPress={() => removeItems(dish.id)}
+            onPress={() => removeItems(dish.id)
+              
+            }
           >
             <View style={{ width: 45, height: 45, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 5, alignItems: 'center' }}>
               <MaterialIcons name="remove-circle" size={40} color={'#da2846a2'} />
@@ -127,15 +129,7 @@ const entries = useDishStore ((state) => state.entries )
 
 
 const styles = StyleSheet.create({
-courseContainer: {
-  backgroundColor: 'blue',
-  alignSelf: 'center'
-},
-disheContainer:{
-  backgroundColor: '#00000',
-  margin: 2.3,
-  
-},
+
 heading:{
   fontSize: 35,
   fontFamily: 'Inter',
