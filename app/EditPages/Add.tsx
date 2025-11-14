@@ -104,7 +104,13 @@ if (wordCount < 50 || wordCount > 70) {
 
 
  />
-
+            <TouchableOpacity
+            onPress={() => router.back()}>
+              <View> 
+                <Entypo name = "chevron-left" color={"#0fb333ff"} size={55}/>
+              </View>
+            </TouchableOpacity>
+    
       {/**The button to access the add and remove functions. */}
       <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity

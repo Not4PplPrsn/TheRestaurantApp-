@@ -7,7 +7,7 @@ import React,{use, useState} from 'react';
 // The function for the items 
 import { useDishStore } from '@/functions/DishesEntries';
 
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, Entypo } from '@expo/vector-icons';
 import { dishes } from '@/functions/theDishArray';
 
 const router = useRouter();
@@ -37,6 +37,13 @@ const entries = useDishStore ((state) => state.entries )
 
 
  />
+         <TouchableOpacity
+        onPress={() => router.back()}>
+          <View> 
+            <Entypo name = "chevron-left" color={"#0fb333ff"} size={55}/>
+          </View>
+        </TouchableOpacity>
+
 
       {/**The button to access the add and remove functions. */}
       <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
