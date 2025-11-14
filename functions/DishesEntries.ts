@@ -21,6 +21,7 @@ type DishStore = {
   addDishes: (entry: DishEntries) => void; // sub function being set to an empty state
   removeDishes: (id: number) => void; // sub function being set to an empt
   getByCourse: (courseName: CourseType) => DishEntries[]; // setting the filtering empty filtering
+  getTotal: (price: number) => void
 };
 
 export const useDishStore = create<DishStore>((set, get) => ({
@@ -117,7 +118,6 @@ type CartItems={
   price: number;
   image: any;
   isDeleted: boolean;
-  quantity: number;
 }
 
 type CartStore = {
@@ -135,22 +135,14 @@ type CartStore = {
 
 export const useCartStore = create<CartStore>((set, get) => ({
   cart: [],
-  addToCart: (dish) => {
-    const existing = get().cart.find((item) => item.id === dish.id);
-    if (existing) {
-      set((state) => ({
-        cart: state.cart.map((item) =>
-          item.id === dish.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        ),
-      }));
-    } else {
-      set((state) => ({
-        cart: [...state.cart, { ...dish, quantity: 1 }],
-      }));
-    }
-  },
+addToCart: (dish: DishEntries) => {
+  set((state) => {
+    const alreadyInCart = state.cart.some((item) => item.id === dish.id);
+    return alreadyInCart
+      ? {} // do nothing if already in cart
+      : { cart: [...state.cart, dish] };
+  });
+},
 
   removeFromCart: (id) => {
     set((state) => ({
