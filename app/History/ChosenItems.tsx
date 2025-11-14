@@ -3,11 +3,20 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React,{useState} from 'react';
+import { useTabBarInactivity } from '@/functions/AutoHidTabBar'; // calling the function  i made  in the functions folder
 
-import { Entypo } from '@expo/vector-icons';
+import { useCartStore } from '@/functions/DishesEntries';
+import { Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 const router = useRouter();
 
 export default function DetailedCart(){
+   const cart = useCartStore((state) => state.cart)// store the array in a new form
+  // storing functions in new variables
+   const removeCartItem = useCartStore((state) => state.removeFromCart)
+
+   const clearCart = useCartStore((state) => state.clearCart)
+
+   const totalCart = useCartStore((state) => state.getTotal)
     return(
   <ImageBackground
   source={require('../../assets/images/Backgrounds/TableSetting3.jpg')}
@@ -29,14 +38,51 @@ export default function DetailedCart(){
             <View> 
               <Entypo name = "chevron-left" color={"#0fb333ff"} size={55}/>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> {/**returning users to a previous page  */}
   
 
 
 
           <Text style={styles.heading}>Cart</Text>
-    
-      <View></View>
+
+<ScrollView>
+    {cart.map((id ) => ( // The attribute to he cart array
+      <View key={id.id}
+      style ={styles.theItemContainer}
+      
+      >
+
+              <TouchableOpacity
+      onPress={()=> removeCartItem(id.id)}
+      >
+        <View style= {{justifyContent: 'space-around', alignItems: 'flex-end', margin: 5}}>
+          <Entypo name="circle-with-minus" color={'red'} size={30}
+          />
+        </View>
+      </TouchableOpacity>
+
+      <Image
+      
+      source={id.image}
+      
+      style={styles.ImageDisplay}
+      />
+      
+      <Text>
+        {id.dishName}
+      </Text>
+      <Text style={styles.descriptionText}>
+        {id.description}
+      </Text>
+      <Text style={styles.baseLineText}>
+        {id.courseName}
+      </Text>
+      <Text style={styles.baseLineText}>
+        R{id.price}
+      </Text>
+
+      </View>))}
+  </ScrollView>
  
       
       </ImageBackground>
@@ -106,7 +152,28 @@ buttonText: {
   margin: 5,
   fontWeight:'700',
   fontFamily: 'Roboto'
-}
+},
+ImageDisplay: {
+  width : 280,
+  height: 120,
+  borderRadius: 7,
+  margin : 12,
+  alignSelf: 'center'
+  
+},
+theItemContainer: {
+  height: 'auto', 
+  width: 330, 
+  padding: 3, 
+  backgroundColor: '#e0d3c1e0',
+  borderRadius: 20.,
+  marginBottom:2,
+  marginTop: 2, 
+  alignSelf: 'center',
+  margin:30,
+},
+
+
 
 
 });
