@@ -77,8 +77,8 @@ I stored the styling of the bottom navigation separately as the nav bar reverted
 ## References 
   Expo, 2025. Authentication in Expo Router. [online] Expo Documentation. Available at: <https://docs.expo.dev/router/advanced/authentication/> [Accessed 5 November 2025].
 
-  
 
+  Robin, 2022. Reset persisted stated of an application State managed with Zustand. [Forum post] Stack Overflow. Available at: <https://stackoverflow.com/q/74071660/31752930> [Accessed 11 November 2025].
 
   W3Schools, 2025. JavaScript Timing Events. [online] Available at: <https://www.w3schools.com/js/js_timing.asp> [Accessed 11 November 2025].
 
@@ -88,6 +88,7 @@ I stored the styling of the bottom navigation separately as the nav bar reverted
 
 
 ## Images:
+
 ChatGPT, 2025. Logo. [online] ChatGPT. Available at: <https://chatgpt.com/> [Accessed 10 November 2025].
 
 

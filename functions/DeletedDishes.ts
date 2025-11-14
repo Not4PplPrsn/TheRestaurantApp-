@@ -3,6 +3,6 @@ import { DishEntries } from "./DishesEntries";
 
 
 //stored the exportable type in  a new type container
-type Dish = DishEntries;
+type Dish = DishEntries; /**(W3Schools, 2025) */
 
 export const Trash: Dish[] = [];

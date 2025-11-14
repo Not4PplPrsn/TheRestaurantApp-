@@ -5,7 +5,7 @@ import { Trash } from './DeletedDishes';
  import { CourseType } from '@/app/(tabs)/Select';
  
 
-export type DishEntries = { // The kinds of the information that can fill the array elements
+export type DishEntries = { /**(W3Schools, 2025)  (Robin, 2022)*/  // The kinds of the information that can fill the array elements
   id: number;
   dishName: string;
   courseName: string;
@@ -15,7 +15,7 @@ export type DishEntries = { // The kinds of the information that can fill the ar
   isDeleted: boolean;
 };
 
-type DishStore = {
+type DishStore = { /**(Robin, 2022) */
   bin: DishEntries[];
   entries: DishEntries[];//the package for the entries 
   addDishes: (entry: DishEntries) => void; // sub function being set to an empty state
@@ -26,16 +26,16 @@ type DishStore = {
   
 };
 
-export const useDishStore = create<DishStore>((set, get) => ({
+export const useDishStore = create<DishStore>((set, get) => ({/**(W3Schools, 2025)  (Robin, 2022)*/ 
   entries: dishes,
   bin: Trash,
-  addDishes: (entry) => {
+  addDishes: (entry) => {/**(Robin, 2022) */
     const currentEntries = get().entries;//retrieve current entries 
     const alreadyExists = currentEntries.some(
       (dish) => dish.dishName === entry.dishName
     );
 
-    if (alreadyExists) return;
+    if (alreadyExists) return; /**(Robin, 2022) */
 
     const newEntry = { ...entry, isDeleted: false } /**Items which have been added will start as false for the is deleted button  */;
 
@@ -50,7 +50,7 @@ export const useDishStore = create<DishStore>((set, get) => ({
   },
 
 
-removeDishes: (id) =>
+removeDishes: (id) => /**(Robin, 2022) */
   set((state) => { /**Soft delete */
     const dishToDelete = state.entries.find((dish) => dish.id === id) /**find the array items using id  */;
     if (!dishToDelete) return state;
@@ -63,7 +63,7 @@ removeDishes: (id) =>
     };
   }), 
   
-  getTotal: () => {
+  getTotal: () => { /**(Robin, 2022) */
     const { entries } = get(); // take the items from the entries array for future use
     return entries.reduce((acc, dish) => acc + dish.price, 0)/**shows the sum of all the array item price attributes  */;
   }, 
@@ -75,16 +75,16 @@ getByCourse: (courseName) => {
 
 
   // Normalize accented and inconsistent course names
-  const normalized = courseName.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const normalized = courseName.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); /**(Robin, 2022) */
 
-  return entries.filter(
+  return entries.filter( /**(Robin, 2022) */
     (dish) =>
       dish.courseName.normalize('NFD').replace(/[\u0300-\u036f]/g, '') === normalized &&
       !dish.isDeleted
   );
 },
 
-restoreDish: (id: number) => {
+restoreDish: (id: number) => { /**(Robin, 2022) */
   const { bin, entries } = get();// retrieves the items from the Trash array 
 
   const dishToRestore = bin.find((dish) => dish.id === id); //locates the item from the bin array using id
@@ -100,7 +100,7 @@ restoreDish: (id: number) => {
 
   const updatedBin = bin.filter((dish) => dish.id !== id); // find the item it will delete based on the id.
 
-  set({
+  set({ /**(Robin, 2022) */
     entries: reorderedEntries,
     bin: updatedBin, 
     /**updates the dish and bin array to their new form */
@@ -112,7 +112,7 @@ restoreDish: (id: number) => {
 }));
 
 
-type CartItems={ //Attribute for the cart array 
+type CartItems={ //Attribute for the cart array /**(Robin, 2022) */
    id: number;
   dishName: string;
   courseName: string;
@@ -122,7 +122,7 @@ type CartItems={ //Attribute for the cart array
   isDeleted: boolean;
 }
 
-type CartStore = { // Attribute for the useCartStore Function
+type CartStore = { // Attribute for the useCartStore Function /**(Robin, 2022) */
  cart: CartItems[];
  addToCart: (entry: CartItems)=> void;
  removeFromCart: (id: number) => void;
@@ -135,9 +135,9 @@ type CartStore = { // Attribute for the useCartStore Function
 
 
 
-export const useCartStore = create<CartStore>((set, get) => ({
-  cart: [],
-addToCart: (dish: DishEntries) => { /**This will Take from the rest of DishEntries array attribute a */
+export const useCartStore = create<CartStore>((set, get) => ({ /**(Robin, 2022) */
+  cart: [],/**(Robin, 2022) */
+addToCart: (dish: DishEntries) => {    /**(Robin, 2022) *//**This will Take from the rest of DishEntries array attribute a */
   set((state) => {
     const alreadyInCart = state.cart.some((item) => item.id === dish.id)/**Check if the items exist in he cart array  */;
     return alreadyInCart
@@ -146,7 +146,7 @@ addToCart: (dish: DishEntries) => { /**This will Take from the rest of DishEntri
   });
 },
 
-  removeFromCart: (id) => {
+  removeFromCart: (id) => { /**(Robin, 2022) */
     set((state) => ({
       cart: state.cart.filter((item) => item.id !== id)//filter through the array to find the items id ,
     }));
