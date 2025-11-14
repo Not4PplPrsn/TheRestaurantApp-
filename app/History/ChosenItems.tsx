@@ -46,14 +46,14 @@ export default function DetailedCart(){
           <Text style={styles.heading}>Cart</Text>
 
 <ScrollView>
-    {cart.map((id ) => ( // The attribute to he cart array
-      <View key={id.id}
-      style ={styles.theItemContainer}
+    {cart.map((id ) => ( 
+      <View key={id.id} /**key to help with displaying of items */
+      style ={styles.theItemContainer} /**Styling for the container  */
       
       >
 
               <TouchableOpacity
-      onPress={()=> removeCartItem(id.id)}
+      onPress={()=> removeCartItem(id.id) /**Will Remove items like they never existed based on the id of the item in the array. */}
       >
         <View style= {{justifyContent: 'space-around', alignItems: 'flex-end', margin: 5}}>
           <Entypo name="circle-with-minus" color={'red'} size={30}
