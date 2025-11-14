@@ -1,50 +1,21 @@
-# Welcome to your Expo app 👋
+# The app for  Chef Christoffel
+## Design conciderations
+1.  Colour Scheme
+ I chose the color red, cream and blue as they were the easiest for me to pick and chose to use them a gradient as it would be much much more visually engaging.
+2.  The buttons and inputs
+ - For the button I chose not to use border, as the shadow already made the view look enticing added another dark element to it would over stimulate the user.
+ - The input however, I used borders for so that the user can  more easily notice the inputs and they need.
+3.  List
+- I made the list light blue so it woul not clash with the clue at the corder of the page and made it so that the there  are no border outlines as the light blue already draws the attention of the user and make each item distict.
+4. Made it so that only the bottom part of the screen could swipe/scroll as it woul be redundant for the whole swipe when there is not more information beyond the array.
+5.  Description 
+- Made the description box white so that the user is more easily draw to th content and separate the description from  the rest of the item attributes.
+## Links 
+1. GithubLink [https://github.com/VCNMB-HAM/vcnmb-mast5112-2025-poe-Not4PplPrsn.git] & [https://github.com/Not4PplPrsn/NewRestaurant.git]
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+2. Youtube Link [https://youtube.com/shorts/mr0Ck3cftyU]
 
-## Get started
+## References 
+ 1. The IIE, 2025. MAST5112MM.docx [WWW Document]. URL https://advtechonline.sharepoint.com/:w:/r/sites/TertiaryStudents/_layouts/15/Doc.aspx?sourcedoc=%7BC4AAF478-96AC-4469-8005-F7CDC4A15EBB%7D&file=MAST5112MM.docx&action=default&mobileredirect=true (accessed 10.22.25).
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+ 2. W3Schools, 2025. TypeScript Tutorial [WWW Document]. URL https://www.w3schools.com/typescript/index.php (accessed 10.22.25).
