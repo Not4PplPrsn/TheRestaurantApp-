@@ -2,6 +2,9 @@ import { create } from 'zustand';// allow for the transfer of these functions be
 import { dishes } from './theDishArray';// these are the items which are
 import { Trash } from './DeletedDishes';
  import { Cart } from './Cart';
+ import { CourseType } from '@/app/(tabs)/Select';
+ 
+
 export type DishEntries = { // The kinds of the information that can fill the array elements
   id: number;
   dishName: string;
@@ -13,12 +16,11 @@ export type DishEntries = { // The kinds of the information that can fill the ar
 };
 
 type DishStore = {
-  
   bin: DishEntries[];
   entries: DishEntries[];//the package for the entries 
   addDishes: (entry: DishEntries) => void; // sub function being set to an empty state
   removeDishes: (id: number) => void; // sub function being set to an empt
-  getByCourse: (courseName: string) => void; // setting the filtering empty filtering
+  getByCourse: (courseName: CourseType) => DishEntries[]; // setting the filtering empty filtering
 };
 
 export const useDishStore = create<DishStore>((set, get) => ({
@@ -65,9 +67,18 @@ removeDishes: (id) =>
 
 
 
-  getByCourse: (course: string) => { // this will filter the dishes based on the course name
+getByCourse: (courseName) => {
   const { entries } = get();
-  return entries.filter((dish) => dish.courseName === course);/**Will Filter based upon the course */
+
+
+  // Normalize accented and inconsistent course names
+  const normalized = courseName.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  return entries.filter(
+    (dish) =>
+      dish.courseName.normalize('NFD').replace(/[\u0300-\u036f]/g, '') === normalized &&
+      !dish.isDeleted
+  );
 },
 
 restoreDish: (id: number) => {
@@ -114,6 +125,7 @@ type CartStore = {
  addToCart: (entry: CartItems)=> void;
  removeFromCart: (id: number) => void;
  clearCart: () => void
+ getTotal: (price: number) => void;
 
 
 }
@@ -147,4 +159,10 @@ export const useCartStore = create<CartStore>((set, get) => ({
   },
 
   clearCart: () => set({ cart: [] }),
+
+    getTotal: () => {
+    const { cart } = get(); // This will add the prices of the selection
+    return cart.reduce((acc, item) => acc + item.price, 0);
+  },
+
 }));

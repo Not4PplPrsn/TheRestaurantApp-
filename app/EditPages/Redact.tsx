@@ -41,7 +41,7 @@ const entries = useDishStore ((state) => state.entries )
       {/**The button to access the add and remove functions. */}
       <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
-      onPress={() => router.push('/EditPages/Add')}
+      onPress={() => router.navigate('/EditPages/Add')}
       >
         <View style={styles.addButton}>
           <Text style={styles.buttonText} >Add</Text>
@@ -49,7 +49,7 @@ const entries = useDishStore ((state) => state.entries )
       </TouchableOpacity>
 
       <TouchableOpacity
-      onPress={() => router.push('/EditPages/Redact')}
+      onPress={() => router.navigate('/EditPages/Redact')}
       >
         <View style={styles.removeButton}>
           <Text style={styles.buttonText}>Remove</Text>

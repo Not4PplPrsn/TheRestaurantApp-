@@ -108,7 +108,8 @@ if (wordCount < 50 || wordCount > 70) {
       {/**The button to access the add and remove functions. */}
       <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
-      onPress={() => router.push('/EditPages/Add')}
+      onPress={() => router.navigate('/EditPages/Add')}
+      activeOpacity={0.6}
       >
         <View style={styles.addButton}>
           <Text style={styles.buttonText} >Add</Text>
@@ -116,7 +117,7 @@ if (wordCount < 50 || wordCount > 70) {
       </TouchableOpacity>
 
       <TouchableOpacity
-      onPress={() => router.push('/EditPages/Redact')}
+      onPress={() => router.navigate('/EditPages/Redact')}
       >
         <View style={styles.removeButton}>
           <Text style={styles.buttonText}>Remove</Text>
@@ -128,7 +129,7 @@ if (wordCount < 50 || wordCount > 70) {
 
           
 
-          <Text style={styles.heading}>Editing</Text>
+          <Text style={styles.heading}>Adding</Text>
   <View style = {styles.FormContainer}>
     
   <View style={{margin: 25.4,   }}> 
@@ -188,7 +189,7 @@ style={styles.theDescription}
                 
                 >
                   <View style = {{ flexDirection: 'column', height: 60, padding:2, alignSelf:'flex-start'}}>
-                  <RadioButton.Item label='Entrée' value='Entrée' labelStyle= {styles.radioButtonGroup}/>
+                  <RadioButton.Item label='Entrée' value='Entree' labelStyle= {styles.radioButtonGroup}/>
                   <RadioButton.Item label='Main' value='Main' labelStyle= {styles.radioButtonGroup}/>
                   <RadioButton.Item label='Dessert' value='Dessert' labelStyle= {styles.radioButtonGroup}/>
                   </View>
@@ -257,7 +258,7 @@ heading2:{
 addButton:{
   width: 76,
   height: 30,
-  backgroundColor: '#fdfdfdff',
+  backgroundColor: '#0b81a5ff',
   margin: 2,
   borderTopLeftRadius:20,
   borderBottomLeftRadius:20,
@@ -265,7 +266,7 @@ addButton:{
 removeButton:{
   width: 76,
   height: 30,
-  backgroundColor: '#ffffffff',
+  backgroundColor: '#922546ff',
   margin: 2,
   borderTopRightRadius: 20,
   borderBottomRightRadius: 20,
