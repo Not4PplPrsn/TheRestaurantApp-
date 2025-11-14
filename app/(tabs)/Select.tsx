@@ -23,7 +23,7 @@ export default function DishSelection() {
 
      const { onTouch } = useTabBarInactivity(); /**Calling the functions in need for the scroll view so the bottom tab will disappear */
 
-  const { entries, addDishes, getTotal} = useDishStore();
+  const { entries} = useDishStore();
 
  const {addToCart,} = useCartStore();
 
@@ -153,8 +153,7 @@ const handleAddSelectedItems = (
         </View>
 
         <View style={{ alignSelf: 'flex-start', height: 'auto', width: 'auto', padding:0.0005, backgroundColor: '#f05d5dff', borderRadius: 6 , margin: 20, }}>
-            <Text style={{backgroundColor: '#eed1acff', margin: 8, borderRadius:10, height: 40, width:90, fontSize: 10, padding: 10 }}>
-              <FontAwesome name="opencart" size={20} color="#c97f1f"  style={{margin: 10}}/>:   
+            <Text style={{backgroundColor: '#eed1acff', margin: 8, borderRadius:10, height: 40, width:90, fontSize: 10, padding: 10 }}>   
               R {totalPrice.toFixed(2)}
             </Text>
         </View>
@@ -168,8 +167,9 @@ const handleAddSelectedItems = (
             style={{alignSelf: 'flex-start'}}
             >
               <View  style ={ styles.buttonAdd}>
-                <Text>
-                  Add To Cart
+                <Text style={styles.buttonText}>
+                <Text style ={{paddingEnd: 20}}><FontAwesome name="opencart" size={20} color="#c97f1f"  style={{margin: 20}}/></Text>
+                         Add 
                 </Text>
               </View>
             </TouchableOpacity>
@@ -178,7 +178,7 @@ const handleAddSelectedItems = (
             onPress={clearSelection}
             >
               <View style ={ styles.buttonReset}>
-                <Text>
+                <Text style={styles.buttonText}>
                   Reset
                 </Text>
               </View>
@@ -364,6 +364,13 @@ const styles = StyleSheet.create({
 
     
     },
+    buttonText: {
+      color: '#ffff',
+      fontSize: 16,
+      fontFamily: 'monospace',
+      letterSpacing:0.25
+
+    }
 
 
 
