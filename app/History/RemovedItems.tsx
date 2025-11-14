@@ -44,7 +44,7 @@ export default function Bin(){
       </View>
 
 
-          <Text style={styles.heading}>Editing</Text>
+          <Text style={styles.heading}>Deleted</Text>
     
       <View></View>
 
