@@ -3,6 +3,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React,{useState} from 'react';
+
+import { Entypo } from '@expo/vector-icons';
 const router = useRouter();
 
 export default function DetailedCart(){
@@ -22,6 +24,13 @@ export default function DetailedCart(){
 
 
  />
+          <TouchableOpacity
+          onPress={() => router.back()}>
+            <View> 
+              <Entypo name = "chevron-left" color={"#0fb333ff"} size={55}/>
+            </View>
+          </TouchableOpacity>
+  
 
 
 
