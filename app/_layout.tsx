@@ -9,7 +9,6 @@ import { MaterialIcons, Ionicons, Entypo, FontAwesome } from '@expo/vector-icons
 import { useNavigation } from 'expo-router';
 
 //The pages for the history tab in the drawer
-import RecentlyAdd from './History/RecentlyAdded';
 import Bin from './History/RemovedItems';
 import DetailedCart from './History/ChosenItems';
 import { ReduceMotion } from 'react-native-reanimated';
