@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { DishEntries, useDishStore,useCartStore } from '@/functions/DishesEntries';
-
+import { Alert } from 'react-native';
 import { use, useState } from 'react';
 //This will be used in the check boxes for the dishes  
 import { Checkbox, Menu, Provider as PaperProvider, Button } from 'react-native-paper';
@@ -25,7 +25,7 @@ export default function DishSelection() {
 
   const { entries} = useDishStore();
 
- const {addToCart,} = useCartStore();
+ const addToCart = useCartStore((state) => state.addToCart);
 
 const [addedItems, setAddedItems] = useState<DishEntries[]>([]);
 
@@ -78,21 +78,24 @@ const toggleSelection = (dish: DishEntries) => {
   setTotalPrice(newTotal);
 };
 
-const handleAddSelectedItems = (
-  selectedIds: number[],
-  allDishes: DishEntries[],
-) => {
-  const { addToCart } = useCartStore.getState();
-
-  selectedIds.forEach((id) => {
-    const dish = allDishes.find((d) => d.id === id);
-    if (dish) {
-      addToCart(dish); // internal logic already prevents duplicates
+const handleAddSelectedItems = () => {
+  // Add selected dishes to cart using filteredItems
+  entries.forEach((dish) => {
+    if (selectedItems.includes(dish.id)) {
+      addToCart(dish);
     }
   });
 
+  // Reset selection and total
+  setSelectedItems([]);
+  setTotalPrice(0);
+
+  Alert.alert('Success', 'Items added to cart.');
 };
-    return(
+
+
+
+  return(
 
       <PaperProvider>
       <ImageBackground
@@ -163,7 +166,7 @@ const handleAddSelectedItems = (
 
         <View style = {{justifyContent: 'space-around', }}>
             <TouchableOpacity
-            onPress={() => (handleAddSelectedItems)}
+            onPress={ handleAddSelectedItems} // called the function so the onpress knows what logic to use when adding 
             style={{alignSelf: 'flex-start'}}
             >
               <View  style ={ styles.buttonAdd}>
@@ -190,7 +193,7 @@ const handleAddSelectedItems = (
 <View>
 
 <ScrollView
-        onTouchStart={onTouch}
+        onTouchStart={onTouch} // this will remove the bottom tab from the bottom screen so the user can read the content fully
 
         contentContainerStyle= {{ paddingBottom: 50}}
 
@@ -225,7 +228,7 @@ const handleAddSelectedItems = (
     );
   }}
 
-  keyExtractor={(item) => item.id.toString()}
+  keyExtractor={(item) => item.id.toString()} // turns all items into string form
 /></View>
 
   
