@@ -2,6 +2,7 @@ import { useDishStore } from '@/functions/DishesEntries';
 import { Image, ImageBackground } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 //
+  
 import { ScrollView, StyleSheet, Text, View, } from 'react-native';
 import { useTabBarInactivity } from '@/functions/AutoHidTabBar'; // calling the function  i made  in the functions folder
 // The function for the scroll time out 
@@ -16,15 +17,10 @@ export default function HomeScreen() {
 
   return (
 
-  <ScrollView
-        onTouchStart={onTouch}
-        scrollEventThrottle={16}
-  
-    >
       <ImageBackground
   source={require('../../assets/images/Backgrounds/RestaurantExterior.webp')}
   style={[StyleSheet.absoluteFill,{opacity:60,} ]}
-  />
+  >
 
   <LinearGradient
   colors={['#e2d8d879', '#c52b1db6']}
@@ -33,6 +29,10 @@ export default function HomeScreen() {
   style={[StyleSheet.absoluteFill, ]}
   />
       <Text style={styles.heading}>Welcome</Text>
+    <ScrollView
+    onTouchStart={onTouch}
+        scrollEventThrottle={16}
+    >
 
 
     <Text style={styles.heading2} >Entrées</Text>
@@ -41,7 +41,7 @@ export default function HomeScreen() {
     
     {entries
     
-    .filter((entry) => entry.courseName === 'Entree') /**Will Share based upon the course name */
+    .filter((entry) => entry.courseName === 'Entrée') /**Will Share based upon the course name */
     .slice(0,2)
     .map((entry) => (
       <View style={styles.dishContainer} key={entry.id}>
@@ -130,10 +130,10 @@ export default function HomeScreen() {
         </View>
       ))}
       </View>
+      </ScrollView>
       
-      
+     </ImageBackground> 
  
- </ScrollView>
   );
 }
 
