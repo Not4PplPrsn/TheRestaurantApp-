@@ -28,19 +28,19 @@ import { ReduceMotion } from 'react-native-reanimated';
 
  };
 
- const History: Pages[]  = [
-  {id: 1, name: 'Bin', path:'/History/RemovedItems' , icon:<Ionicons name="trash-outline" color={"#f0e9dfff"} size={33}/>},
+ const History: Pages[]  = [/**(W3Schools, 2025) */
+  {id: 1, name: 'Bin', path:'/History/RemovedItems' , icon:<Ionicons name="trash-outline" color={"#f0e9dfff"} size={33}/>},/**(W3Schools, 2025) */
   {id: 1, name: 'Cart', path:'/History/ChosenItems' , icon:<FontAwesome name='opencart' color={"#e6d8c6ff"} size={33}/>},
  ]
 
 export const unstable_settings = {
-  anchor: '(tabs)',
+  anchor: '(tabs)',/**(W3Schools, 2025) */
 };
 
 export default function RootLayout() {
 
   return (
-    <Drawer
+    <Drawer /**(Expo, 2025) */
     screenOptions={{
       drawerType: 'front', headerShown: false/**Force the header for the drawer to show  */,
             drawerStyle: { width: 260,
@@ -85,17 +85,17 @@ export default function RootLayout() {
   );
 }
 
-function DrawerScroller(){
+function DrawerScroller(){ /**(Expo, 2025) */
 
   const navigate= useNavigation();
-  const [expandSections, setExpandSections] = useState({
+  const [expandSections, setExpandSections] = useState({/**(W3Schools, 2025) */
     History: false
   });
-  const [items, setItems] = useState([
+  const [items, setItems] = useState([/**(W3Schools, 2025) */
     History.map(item => ({...item, visible: true })),
 
   ]);
-    const toggleSection = (key: keyof typeof expandSections) => {/**This is the function for the  the the toggling of items for the opening and closing of  the the item in the drawer items  */
+    const toggleSection = (key: keyof typeof expandSections) => { /**(W3Schools, 2025) */ /**This is the function for the  the the toggling of items for the opening and closing of  the the item in the drawer items  */
     setExpandSections((prev) => ({
       ...prev,
       [key]: !prev[key],
@@ -103,11 +103,11 @@ function DrawerScroller(){
   };
 
   return(
-    <DrawerContentScrollView
+    <DrawerContentScrollView /**(Expo, 2025) */
     
 
     >
-<DrawerItem
+<DrawerItem /**(Expo, 2025) */
   
   label="Main"
   labelStyle={{ textAlign: 'right', color: "#ffff", textTransform: 'uppercase' }}

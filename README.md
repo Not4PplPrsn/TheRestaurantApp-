@@ -75,7 +75,9 @@ I stored the styling of the bottom navigation separately as the nav bar reverted
 2. Youtube Link [https://youtube.com/shorts/mr0Ck3cftyU]
 
 ## References 
+  Expo, 2025. Authentication in Expo Router. [online] Expo Documentation. Available at: <https://docs.expo.dev/router/advanced/authentication/> [Accessed 5 November 2025].
 
+  
 
 
   W3Schools, 2025. JavaScript Timing Events. [online] Available at: <https://www.w3schools.com/js/js_timing.asp> [Accessed 11 November 2025].
