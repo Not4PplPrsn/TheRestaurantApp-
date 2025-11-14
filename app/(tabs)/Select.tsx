@@ -7,23 +7,12 @@ import { DishEntries, useDishStore,useCartStore } from '@/functions/DishesEntrie
 import { use, useState } from 'react';
 //This will be used in the check boxes for the dishes  
 import { Checkbox, Menu, Provider as PaperProvider, Button } from 'react-native-paper';
-  import { SafeAreaView } from 'react-native-safe-area-context';
 
   import { useTabBarInactivity } from '@/functions/AutoHidTabBar';
-import { dishes } from '@/functions/theDishArray';
 import { FontAwesome } from '@expo/vector-icons';
 
   export type CourseType = 'All' | 'Entrée'  | 'Main' | 'Dessert'; // the value for the filter
 
-  interface FilterButtonsProps {
-  selectedCourse: string;
-  onFilter: (course: string) => void;
-}
-interface DishItemProps {
-  item: DishEntries;
-  isSelected: boolean;
-  onToggle: (id: number) => void;
-}
 
 
 
@@ -34,13 +23,12 @@ export default function DishSelection() {
 
      const { onTouch } = useTabBarInactivity(); /**Calling the functions in need for the scroll view so the bottom tab will disappear */
 
-  const { entries} = useDishStore();
+  const { entries, addDishes, getTotal} = useDishStore();
 
  const {addToCart,} = useCartStore();
 
 const [addedItems, setAddedItems] = useState<DishEntries[]>([]);
 
-const [groupCourse, setGroupCourse] = useState( false)
 
 const [selectedCourse, setSelectedCourse] = useState<CourseType>('All');
 
@@ -71,18 +59,39 @@ const filteredItems = entries.filter((dish) =>
   };
   
 const toggleSelection = (dish: DishEntries) => {
-  const alreadySelected = selectedItems.includes(dish.id);
+  const isSelected = selectedItems.includes(dish.id);
+  let updatedSelection: number[];
 
-  if (alreadySelected) {
-    setSelectedItems((prev) => prev.filter((id) => id !== dish.id));
-    setTotalPrice((prev) => prev - dish.price);
+  if (isSelected) {
+    updatedSelection = selectedItems.filter((id) => id !== dish.id);
   } else {
-    setSelectedItems((prev) => [...prev, dish.id]);
-    setTotalPrice((prev) => prev + dish.price);
+    updatedSelection = [...selectedItems, dish.id];
   }
+
+  setSelectedItems(updatedSelection);
+
+  // Recalculate total from selected items
+  const newTotal = filteredItems
+    .filter((item) => updatedSelection.includes(item.id))
+    .reduce((sum, item) => sum + item.price, 0);
+
+  setTotalPrice(newTotal);
 };
 
+const handleAddSelectedItems = (
+  selectedIds: number[],
+  allDishes: DishEntries[],
+) => {
+  const { addToCart } = useCartStore.getState();
 
+  selectedIds.forEach((id) => {
+    const dish = allDishes.find((d) => d.id === id);
+    if (dish) {
+      addToCart(dish); // internal logic already prevents duplicates
+    }
+  });
+
+};
     return(
 
       <PaperProvider>
@@ -104,8 +113,8 @@ const toggleSelection = (dish: DishEntries) => {
                 Menu
             </Text>
 
-
- <View style= {{margin: 30}}>           
+<View style={{flexDirection : 'row'}}>
+ <View style= {{margin:12}}>           
 <Menu //(W3Schools, 2025)
         // this is when the button is inactive
           visible={menuVisible}// (The IIE, 2025)
@@ -134,58 +143,82 @@ const toggleSelection = (dish: DishEntries) => {
             style={styles.menuItem}
             titleStyle={styles.menuItemText}
               onPress={() => {
-      setSelectedCourse(course as CourseType); //  update selected course
-      setMenuVisible(true);     //  keep it open 
+            setSelectedCourse(course as CourseType);
+            setTimeout(() => setMenuVisible(false), 150); // closes after 150ms
+ //  update selected course
     }}
-
-
-            />
-            
-            
+            />     
             ))}
+        </Menu>
+        </View>
 
-
-
-
-        </Menu></View>
-
-
-
-
-        <View >
-          <FontAwesome name="opencart" size={12} color="#c97f1f"  />
-            <Text>
-              R {totalPrice}
+        <View style={{ alignSelf: 'flex-start', height: 'auto', width: 'auto', padding:0.0005, backgroundColor: '#f05d5dff', borderRadius: 6 , margin: 20, }}>
+            <Text style={{backgroundColor: '#eed1acff', margin: 8, borderRadius:10, height: 40, width:90, fontSize: 10, padding: 10 }}>
+              <FontAwesome name="opencart" size={20} color="#c97f1f"  style={{margin: 10}}/>:   
+              R {totalPrice.toFixed(2)}
             </Text>
         </View>
+        
+        </View>
+
+
+        <View style = {{justifyContent: 'space-around', }}>
+            <TouchableOpacity
+            onPress={() => (handleAddSelectedItems)}
+            style={{alignSelf: 'flex-start'}}
+            >
+              <View  style ={ styles.buttonAdd}>
+                <Text>
+                  Add To Cart
+                </Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            onPress={clearSelection}
+            >
+              <View style ={ styles.buttonReset}>
+                <Text>
+                  Reset
+                </Text>
+              </View>
+            </TouchableOpacity>
+        </View>
+
+
 
 <View>
 
 <ScrollView
         onTouchStart={onTouch}
-        scrollEventThrottle={16}
+
+        contentContainerStyle= {{ paddingBottom: 50}}
 
 >
+  <View >
   <FlatList
   data={filteredItems}
   renderItem={({ item }) => {
     const isSelected = selectedItems.includes(item.id);
 
     return (
-      <TouchableOpacity onPress={() => toggleSelection(item)}>
-        <ImageBackground
-          source={{uri: item.image}}
-          style={[StyleSheet.absoluteFill,{opacity:60,} ]}
-        />
-        <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10, width: 300, height: 170}}>
-          <Checkbox
+      <TouchableOpacity onPress={() => toggleSelection(item)}
+      style= {{ justifyContent: 'space-between'}}>
+        <View style={{ flexDirection: 'column', alignItems: 'center', padding: 6.5, width: 250, height: 270,  }}>
+         <View style={{alignSelf:'flex-end'}}><Checkbox
             status={isSelected ? 'checked' : 'unchecked'}
             onPress={() => toggleSelection(item)}
-          />
-          <View style={{ marginLeft: 8 }}>
-            <Text>{item.dishName}</Text>
-            <Text>{item.description}</Text>
-            <Text>R{item.price.toFixed(2)}</Text>
+          
+          /></View> 
+          <View style={{ marginLeft:25,width:250, borderRadius: 15, }}>
+            <ImageBackground
+            source={item.image}
+            style = {[StyleSheet.absoluteFill, {opacity: 60 }]}
+            
+            />
+            <Text style={styles.heading2}>{item.dishName}</Text>
+           
+            <Text style = {styles.PriceContainer}>R{item.price.toFixed(2)}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -193,7 +226,7 @@ const toggleSelection = (dish: DishEntries) => {
   }}
 
   keyExtractor={(item) => item.id.toString()}
-/>
+/></View>
 
   
 </ScrollView>         
@@ -231,9 +264,14 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   heading2: {
-    fontSize: 20,
-    color: '#272424', // fixed invalid hex
+    fontSize: 13,
+    color: '#b89826ff', // fixed invalid hex
     fontWeight: '600',
+    backgroundColor: '#eee5e5ab',
+    width: 140,
+    height: 'auto',
+    margin: 20,
+    
   },
   theItemContainer: {
     height: 'auto',
@@ -306,6 +344,27 @@ const styles = StyleSheet.create({
   },
   menuItemText: {
     fontFamily: 'monospace'},
+
+    buttonReset:{
+      backgroundColor: '#d60e0eff',
+      borderRadius: 10,
+      padding: 5,
+      margin: 10,
+      width: 60,
+      height: "auto"
+    
+    },
+        buttonAdd:{
+      backgroundColor: '#0e2cd6ff',
+      borderRadius: 10,
+      padding: 5,
+      margin: 10,
+      width: 'auto',
+      height: "auto"
+
+    
+    },
+
 
 
 });
