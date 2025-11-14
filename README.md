@@ -95,3 +95,28 @@ ChatGPT, 2025. Logo. [online] ChatGPT. Available at: <https://chatgpt.com/> [Acc
 our horse Veronica’s barn into this incredible restaurant, built with stone, delicate craftsmanship, and the hands-on dedication of our entire team. Now its a Michelin recognised restaurant!🍀A true labor of love. For reservations and information: Link in bio. 👆 📩info@grandmaswonderland.com 📞0542 253 50 80 #theBARNintheFarm #MichelinRecommended #ZeroWaste #FarmFresh #FarmToTable #NewMenu #GreenMichelin’. [online] Instagram. Available at: <https://www.instagram.com/thebarn_in_thefarm/p/DFSw3hvgYS9/> [Accessed 8 November 2025].
 
 Rust en Vrede, n.d. Restaurant. Rust en Vrede. Available at: <https://rustenvrede.com/restaurant/> [Accessed 14 November 2025]
+
+Anon. n.d. Tiramisu-14.jpg (683×1024). Available at: <https://tastesbetterfromscratch.com/wp-content/uploads/2017/04/Tiramisu-14.jpg> [Accessed 7 November 2025].
+
+Camille, 2021. Lemon Mille-Feuille. Baker Street Society. Available at: <https://bakerstreetsociety.com/lemon-mille-feuille/> [Accessed 7 November 2025].
+
+Anon. n.d. 39e677d8-0746-4e8b-8b90-1d73e436078b--DuckEggCremeBrulee_horiz.JPG (2000×1334). Available at: <https://images.food52.com/ObMfFKaGpH0oNCLXF8U9u_YfgvQ=/39e677d8-0746-4e8b-8b90-1d73e436078b--DuckEggCremeBrulee_horiz.JPG?w=1920&q=75> [Accessed 7 November 2025a].
+
+Anon. n.d. sachertorte-sacher-torte-1-.webp (1100×733). Available at: <https://www.wien.info/resource/image/308404/3x2/1100/733/457879c252f72cf043a23d0e44820d39/84A2958DEC3AE4BEA489B1F5B7237604/sachertorte-sacher-torte-1-.webp> [Accessed 7 November 2025b].
+
+Anon. n.d. Tiramisu-14.jpg (683×1024). Available at: <https://tastesbetterfromscratch.com/wp-content/uploads/2017/04/Tiramisu-14.jpg> [Accessed 7 November 2025c].
+
+Anon. n.d. Wreath-bread.jpg.webp (1200×800). Available at: <https://taste.co.za/wp-content/uploads/2021/05/Wreath-bread.jpg.webp> [Accessed 6 November 2025d].
+BBC Food, 2025. Chicken tagliatelle recipe. [online] BBC Food. Available at: <https://www.bbc.co.uk/food/recipes/chicken_tagliatelle_04066> [Accessed 7 November 2025].
+
+London Unattached, 2018. Pheasant Breast recipe with White Wine and Mushroom Sauce. Available at: <https://www.london-unattached.com/pheasant-breast-white-wine-mushroom/> [Accessed 8 November 2025].
+
+Anon. n.d. Split-pea-soup.jpg.webp (1200×800). Available at: <https://taste.co.za/wp-content/uploads/2021/05/Split-pea-soup.jpg.webp> [Accessed 6 November 2025c].
+
+Anon. n.d. Stovetop-leg-of-lamb.jpg.webp (1200×800). Available at: <https://taste.co.za/wp-content/uploads/2021/05/Stovetop-leg-of-lamb.jpg.webp> [Accessed 6 November 2025d].
+
+Anon. n.d. 0_DBR_MEN_130522Marton_18jpeg.jpg (1200×900). Available at: <https://i2-prod.manchestereveningnews.co.uk/article23957379.ece/ALTERNATES/s1200e/0_DBR_MEN_130522Marton_18jpeg.jpg> [Accessed 6 November 2025a].
+
+
+
+
