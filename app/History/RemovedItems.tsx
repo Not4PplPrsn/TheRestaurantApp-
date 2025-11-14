@@ -3,11 +3,32 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ImageBackground } from 'expo-image';
 import { useRouter } from 'expo-router';
 import React,{useState} from 'react';
-import { Entypo, Ionicons } from '@expo/vector-icons';
+import { Entypo, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useTabBarInactivity } from '@/functions/AutoHidTabBar'; // calling the function  i made  in the functions folder
+
+
+
+
+
 const router = useRouter();
+
+import { useDishStore, } from '@/functions/DishesEntries';
+import { Checkbox, Provider as PaperProvider } from 'react-native-paper';
 
 
 export default function Bin(){
+     const { onTouch } = useTabBarInactivity(); /**Calling the functions in need for the scroll view so the bottom tab will disappear */
+
+  const recycleBin = useDishStore((state) => state.bin)
+  
+  const restoreItems= useDishStore((state) => state.restoreDish )
+
+  const [selectedDish, setSelectedDish] = useState<number[]>([])
+
+  const handleRestoration =() => {
+
+  }
+
     return(
   <ImageBackground
   source={require('../../assets/images/Backgrounds/TableSetting3.jpg')}
@@ -32,9 +53,36 @@ export default function Bin(){
         </TouchableOpacity>
 
 
-          <Text style={styles.heading}>Deleted</Text>
+          <Text style={styles.heading}>Deleted Items</Text>
+
+        <ScrollView 
+            contentContainerStyle = {{ justifyContent: "space-around"}}
+
+        >
+    {recycleBin.map((id) => (
+      <View key={id.id} style={styles.theItemContainer}>
+        <Image
+        source={id.image}
+        style={styles.ImageDisplay}
+
+        />
+        <Text>{id.dishName}</Text>
+        <Text style={styles.descriptionText} >{id.description}</Text>
+        <Text style={styles.baseLineText}>R  {id.price}</Text>
+
+      <TouchableOpacity
+      onPress={() => restoreItems(id.id)}
+      >
+        <View>
+          <Entypo name='back' color={"#1779e9ff"} size={30}/>
+        </View>
+      </TouchableOpacity>
+      </View>
     
-      <View></View>
+      
+    
+    ))}
+    </ScrollView>
 
       
       </ImageBackground>
@@ -43,15 +91,7 @@ export default function Bin(){
 
 
 const styles = StyleSheet.create({
-courseContainer: {
-  backgroundColor: 'blue',
-  alignSelf: 'center'
-},
-disheContainer:{
-  backgroundColor: '#00000',
-  margin: 2.3,
   
-},
 descriptionText:{
   fontFamily: 'Inter',
   fontWeight: '500',
@@ -62,7 +102,7 @@ heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 90,
+  margin: 40,
   alignSelf: 'center',
   color: '#3b3838ff',
   width:'auto',
@@ -70,13 +110,15 @@ heading:{
   borderBottomWidth: 5,
   lineHeight: 70,
   alignItems: 'center',
-  alignContent: 'center'
+  alignContent: 'center',
   
 },
 baseLineText:{
-  fontSize: 5,
-  fontWeight:'300',
-  color: '#332d2dff'
+  fontSize: 10,
+  fontWeight:'500',
+  color: '#110101ff',
+  fontFamily: 'arial',
+  
 },
 heading2:{
   fontSize: 20,
@@ -104,7 +146,28 @@ buttonText: {
   margin: 5,
   fontWeight:'700',
   fontFamily: 'Roboto'
-}
+},
+theItemContainer: {
+  height: 'auto', 
+  width: 330, 
+  padding: 3, 
+  backgroundColor: '#e0d3c1e0',
+  borderRadius: 20.,
+  marginBottom:2,
+  marginTop: 2, 
+  alignSelf: 'center',
+  margin:30,
+},
+ImageDisplay: {
+  width : 280,
+  height: 120,
+  borderRadius: 7,
+  margin : 12,
+  alignSelf: 'center'
+  
+},
+
+
 
 
 });

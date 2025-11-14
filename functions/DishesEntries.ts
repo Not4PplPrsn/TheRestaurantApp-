@@ -21,7 +21,9 @@ type DishStore = {
   addDishes: (entry: DishEntries) => void; // sub function being set to an empty state
   removeDishes: (id: number) => void; // sub function being set to an empt
   getByCourse: (courseName: CourseType) => DishEntries[]; // setting the filtering empty filtering
-  getTotal: (price: number) => void
+  getTotal: (price: number) => void;
+  restoreDish: (id: number) => void 
+  
 };
 
 export const useDishStore = create<DishStore>((set, get) => ({
@@ -35,36 +37,36 @@ export const useDishStore = create<DishStore>((set, get) => ({
 
     if (alreadyExists) return;
 
-    const newEntry = { ...entry, isDeleted: false };
+    const newEntry = { ...entry, isDeleted: false } /**Items which have been added will start as false for the is deleted button  */;
 
-    const updated = [newEntry, ...currentEntries];
+    const updated = [newEntry, ...currentEntries]; /**Adds item to the current array  */
 
     const reordered = updated.map((dish, index) => ({
       ...dish,
       id: index + 1,//this reorders the array such that all items that are added come first and allows the user to add new item if it does ont exist
     }));
 
-    set({ entries: reordered });
+    set({ entries: reordered }/**Will return the reorder array */);
   },
 
 
 removeDishes: (id) =>
-  set((state) => {
-    const dishToDelete = state.entries.find((dish) => dish.id === id);
+  set((state) => { /**Soft delete */
+    const dishToDelete = state.entries.find((dish) => dish.id === id) /**find the array items using id  */;
     if (!dishToDelete) return state;
 
-    const updatedDish = { ...dishToDelete, isDeleted: true };
+    const updatedDish = { ...dishToDelete, isDeleted: true } /**When this the items is deleted it will its boolean will changed to true */;
 
     return {
-      entries: state.entries.filter((dish) => dish.id !== id),
-      bin: [...state.bin ?? [], updatedDish],
+      entries: state.entries.filter((dish) => dish.id !== id)/**This will filter  */,
+      bin: [...state.bin ?? [], updatedDish] /**After the filter it will remove from the entries array and update the bin */,
     };
   }), 
   
   getTotal: () => {
-    const { entries } = get(); // This will add the prices of the selection
-    return entries.reduce((acc, dish) => acc + dish.price, 0);
-  },
+    const { entries } = get(); // take the items from the entries array for future use
+    return entries.reduce((acc, dish) => acc + dish.price, 0)/**shows the sum of all the array item price attributes  */;
+  }, 
 
 
 
@@ -96,7 +98,7 @@ restoreDish: (id: number) => {
     id: index + 1,
   })); // adds the items back into the array but att the top of the list
 
-  const updatedBin = bin.filter((dish) => dish.id !== id); // updates the bin and removes the item 
+  const updatedBin = bin.filter((dish) => dish.id !== id); // find the item it will delete based on the id.
 
   set({
     entries: reorderedEntries,
@@ -110,7 +112,7 @@ restoreDish: (id: number) => {
 }));
 
 
-type CartItems={
+type CartItems={ //Attribute for the cart array 
    id: number;
   dishName: string;
   courseName: string;
@@ -120,7 +122,7 @@ type CartItems={
   isDeleted: boolean;
 }
 
-type CartStore = {
+type CartStore = { // Attribute for the useCartStore Function
  cart: CartItems[];
  addToCart: (entry: CartItems)=> void;
  removeFromCart: (id: number) => void;
@@ -135,22 +137,22 @@ type CartStore = {
 
 export const useCartStore = create<CartStore>((set, get) => ({
   cart: [],
-addToCart: (dish: DishEntries) => {
+addToCart: (dish: DishEntries) => { /**This will Take from the rest of DishEntries array attribute a */
   set((state) => {
-    const alreadyInCart = state.cart.some((item) => item.id === dish.id);
+    const alreadyInCart = state.cart.some((item) => item.id === dish.id)/**Check if the items exist in he cart array  */;
     return alreadyInCart
       ? {} // do nothing if already in cart
-      : { cart: [...state.cart, dish] };
+      : { cart: [...state.cart, dish] } /**Will add in the cart  array from the dish array and with cart attributes and update it  */;
   });
 },
 
   removeFromCart: (id) => {
     set((state) => ({
-      cart: state.cart.filter((item) => item.id !== id),
+      cart: state.cart.filter((item) => item.id !== id)//filter through the array to find the items id ,
     }));
   },
 
-  clearCart: () => set({ cart: [] }),
+  clearCart: () => set({ cart: [] }), // will clear all items in the cart 
 
     getTotal: () => {
     const { cart } = get(); // This will add the prices of the selection
