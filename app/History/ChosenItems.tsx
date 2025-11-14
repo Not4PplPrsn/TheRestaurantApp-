@@ -7,9 +7,30 @@ const router = useRouter();
 
 export default function DetailedCart(){
     return(
-      <View>
-        <Text>NEw</Text>
-      </View>
+  <ImageBackground
+  source={require('../../assets/images/Backgrounds/TableSetting3.jpg')}
+        style={[StyleSheet.absoluteFill,{opacity:20} ]}
+
+  
+  >
+      <LinearGradient
+  colors={['#e2d8d898', '#e06e11a9']}
+    start={{x:0.15, y:0.26}}
+  end={{x:0.26, y:1.06}}
+
+      style={[StyleSheet.absoluteFill,{opacity:20} ]}
+
+
+ />
+
+
+
+          <Text style={styles.heading}>Cart</Text>
+    
+      <View></View>
+ 
+      
+      </ImageBackground>
     );
 }
 

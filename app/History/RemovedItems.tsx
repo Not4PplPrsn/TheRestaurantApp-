@@ -9,7 +9,7 @@ const router = useRouter();
 export default function Bin(){
     return(
   <ImageBackground
-  source={require('../../assets/images/Backgrounds/TableSetting4.jpg')}
+  source={require('../../assets/images/Backgrounds/TableSetting3.jpg')}
         style={[StyleSheet.absoluteFill,{opacity:20} ]}
 
   
@@ -24,24 +24,6 @@ export default function Bin(){
 
  />
 
-      {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
-      <TouchableOpacity
-      onPress={() => router.push('/EditPages/Add')}
-      >
-        <View style={styles.addButton}>
-          <Text style={styles.buttonText} >Add</Text>
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-      onPress={() => router.push('/EditPages/Redact')}
-      >
-        <View style={styles.removeButton}>
-          <Text style={styles.buttonText}>Remove</Text>
-        </View>
-      </TouchableOpacity>
-      </View>
 
 
           <Text style={styles.heading}>Deleted</Text>
