@@ -27,6 +27,18 @@ The establishment has asked to provide for them a new app which allow for catalo
   For the page I decided to go with  background that has linear gradient and  and an image background, to make the page more interesting. Then for the buttons I used for the remove and 
 
   ### The Programming 
+  #### Install command 
+  npm install zustand
+  npm install react-native-dropdown-picker
+  npm install @react-native-picker/picker
+  npm install react-native-reanimated
+  npm install react-native-gesture-handler
+  npx expo install expo-image-picker
+  npx expo install expo-media-library
+  npx expo install expo-image-picker
+  npm install react-native-paper
+
+
   #### The Screens 
   - Separate the  initial programme into multiple page which handle different function like the add off new items into the array and the remove of those items.
 
