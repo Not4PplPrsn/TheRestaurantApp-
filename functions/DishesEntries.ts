@@ -54,6 +54,7 @@ removeDishes: (id) => /**(Robin, 2022) */
   set((state) => { /**Soft delete */
     const dishToDelete = state.entries.find((dish) => dish.id === id) /**find the array items using id  */;
     if (!dishToDelete) return state;
+    console.log("Deleting dish with id:", id); 
 
     const updatedDish = { ...dishToDelete, isDeleted: true } /**When this the items is deleted it will its boolean will changed to true */;
 
