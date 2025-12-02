@@ -106,6 +106,7 @@ restoreDish: (id: number) => { /**(Robin, 2022) */
     bin: updatedBin, 
     /**updates the dish and bin array to their new form */
   });
+  console.log("Restored dish with id:", id);
 },
 
 
