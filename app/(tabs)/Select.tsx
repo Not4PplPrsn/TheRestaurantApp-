@@ -145,7 +145,7 @@ const handleAddSelectedItems = () => {
             titleStyle={styles.menuItemText}
               onPress={() => {
             setSelectedCourse(course as CourseType);
-            setTimeout(() => setMenuVisible(false), 150); // closes after 150ms
+            setTimeout(() => setMenuVisible(true), 150); // closes after 150ms
  //  update selected course
     }}
             />     
