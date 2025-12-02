@@ -123,7 +123,9 @@ const handleAddSelectedItems = () => {
           anchor={
             <Button //(W3Schools, 2025)
               mode="outlined" 
-              onPress={() => setMenuVisible(true)}
+              onPress={() => {setMenuVisible(true)
+                 console.log('Menu opens when the button is pressed');  
+              }}
               style={styles.dropdownButton}
               contentStyle={styles.dropdownButtonContent}
               
@@ -145,7 +147,7 @@ const handleAddSelectedItems = () => {
             titleStyle={styles.menuItemText}
               onPress={() => {
             setSelectedCourse(course as CourseType);
-            setTimeout(() => setMenuVisible(true), 150); // closes after 150ms
+            setTimeout(() => setMenuVisible(true), 20); // closes after 20ms
  //  update selected course
     }}
             />     
