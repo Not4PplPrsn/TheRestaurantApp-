@@ -70,7 +70,8 @@ if (wordCount < 50 || wordCount > 70) {
   setSelectedCourse('Entrée'); // made entree th default so the user can start
   setSelectedImage(null);
   setDishName('');
-  setNewPrice(0)
+  setNewPrice(0);
+  console.log('Dish added:', newDish);
 };
 
     const pickImage = async () => {
@@ -208,6 +209,7 @@ style={styles.theDescription}
         <View style={{flexBasis: 'auto', alignSelf: 'center', margin:10}}>
                 <TouchableOpacity
                 onPress={handleAdd}
+                
                 >
                   <View style= {{width:60, height: 60, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 20, alignItems: 'center' }}>
                     <MaterialIcons name="add-circle" size={55} color={'#0a813ca2'}/>
