@@ -303,6 +303,11 @@ const styles = StyleSheet.create({
     margin: 3,
     borderRadius: 6,
     marginBottom: 15,
+    fontSize: 10,
+    color: '#fff',  
+    textDecorationStyle: 'double',
+    letterSpacing: 0.25,
+
   },
   selectedContainer: {
     borderColor: '#3ad63494',
