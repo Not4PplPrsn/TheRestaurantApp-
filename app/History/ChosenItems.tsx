@@ -78,7 +78,7 @@ export default function DetailedCart(){
         {id.courseName}
       </Text>
       <Text style={styles.baseLineText}>
-        R{id.price}
+        Average Price=  R{id.price}
       </Text>
 
       </View>))}
