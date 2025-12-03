@@ -60,7 +60,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text>R  {entry.price}</Text>
+          <Text>Average Price= R  {entry.price}</Text>
         </View>
         </View>
       ))}
@@ -93,7 +93,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text>R  {entry.price}</Text>
+          <Text>Average Price= R  {entry.price}</Text>
         </View>
         </View>
       ))}
@@ -125,7 +125,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text>R  {entry.price}</Text>
+          <Text>Average Price= R  {entry.price}</Text>
         </View>
         </View>
       ))/**(W3Schools, 2025) */}
