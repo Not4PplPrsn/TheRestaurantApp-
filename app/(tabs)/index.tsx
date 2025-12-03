@@ -60,7 +60,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text>Average Price= R  {entry.price}</Text>
+          <Text style={styles.Price}>Average Price= R  {entry.price}</Text>
         </View>
         </View>
       ))}
@@ -93,7 +93,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text>Average Price= R  {entry.price}</Text>
+          <Text style={styles.Price}>Average Price= R  {entry.price}</Text>
         </View>
         </View>
       ))}
@@ -125,7 +125,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text>Average Price= R  {entry.price}</Text>
+          <Text style={styles.Price}>Average Price= R  {entry.price}</Text>
         </View>
         </View>
       ))/**(W3Schools, 2025) */}
@@ -225,7 +225,17 @@ dishNames: {
   fontStyle: 'italic',
   color: '#fff',
   marginTop: 0.05
+},
+Price: {
+  fontSize: 10.5,
+  fontWeight: '600',
+  fontStyle: 'normal',
+  color: 'rgba(58, 82, 82, 0.85)',
+  height: 'auto',
+  width: 'auto',
+  alignSelf: 'flex-end',
+  margin: 4,  
+  
 }
-
 
 });
