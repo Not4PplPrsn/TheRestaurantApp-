@@ -1,7 +1,7 @@
 # The app for  Chef Christoffel
-Mr Cristphel's  Barn is a fine dining eatery with new and reinventive way of making classic French, Italian and South African cuisine with a twist.
+Mr Christoffel's  Barn is a fine dining eatery with new and inventive way of making classic French, Italian and South African cuisine with a twist.
 
-The establishment has asked to provide for them a new app which allow for catalogue all the items they are to serve for the night, and allow for the editing of the items. Then they also asked that we add a feature where the their custmers can order as well. 
+The establishment has asked to provide for them a new app which allow for catalogue all the items they are to serve for the night, and allow for the editing of the items. Then they also asked that we add a feature where the their customers can order as well. 
 ## Design considerations
 1.  Colour Scheme
  I chose the color red, cream and blue as they were the easiest for me to pick and chose to use them a gradient as it would be much much more visually engaging.
@@ -9,8 +9,8 @@ The establishment has asked to provide for them a new app which allow for catalo
  - For the button I chose not to use border, as the shadow already made the view look enticing added another dark element to it would over stimulate the user.
  - The input however, I used borders for so that the user can  more easily notice the inputs and they need.
 3.  List
-- I made the list light blue so it woul not clash with the clue at the corder of the page and made it so that the there  are no border outlines as the light blue already draws the attention of the user and make each item distict.
-4. Made it so that only the bottom part of the screen could swipe/scroll as it woul be redundant for the whole swipe when there is not more information beyond the array.
+- I made the list light blue so it would not clash with the clue at the corder of the page and made it so that the there  are no border outlines as the light blue already draws the attention of the user and make each item distinct.
+4. Made it so that only the bottom part of the screen could swipe/scroll as it would be redundant for the whole swipe when there is not more information beyond the array.
 5.  Description 
 - Made the description box white so that the user is more easily draw to th content and separate the description from  the rest of the item attributes.
 
