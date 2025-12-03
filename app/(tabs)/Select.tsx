@@ -67,13 +67,15 @@ const toggleSelection = (dish: DishEntries) => {
   }
 
   setSelectedItems(updatedSelection);
+  console.log('Selected Items cleared:', updatedSelection);
 
   // Recalculate total from selected items
   const newTotal = filteredItems
     .filter((item) => updatedSelection.includes(item.id))
     .reduce((sum, item) => sum + item.price, 0);
 
-  setTotalPrice(newTotal);
+  setTotalPrice(newTotal); 
+  
 };
 
 const handleAddSelectedItems = () => {
