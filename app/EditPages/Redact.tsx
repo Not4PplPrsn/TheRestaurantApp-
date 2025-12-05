@@ -85,7 +85,7 @@ const entries = useDishStore ((state) => state.entries )
 
         <View>
           <Text style={styles.heading2}>Dish Name</Text>
-          <Text>{dish.dishName}</Text>
+          <Text style = {styles.dishNames}>{dish.dishName}</Text>
         </View>
 
         <View>
@@ -95,9 +95,9 @@ const entries = useDishStore ((state) => state.entries )
 
         <View>
           <Text style={styles.heading2}>Course</Text>
-          <Text>{dish.courseName}</Text>
+          <Text style={styles.dishNames}>{dish.courseName}</Text>
         </View>
-        <Text>R{dish.price}</Text>
+        <Text style={styles.PriceContainer}>R{dish.price}</Text>
       </View>
       
       <View style={{ flexBasis: 'auto', alignSelf: 'center', margin:3 }}>
@@ -199,6 +199,32 @@ ImageDisplay: {
   alignSelf: 'center'
   
 },
+dishNames: {
+  fontSize: 12,
+  fontWeight: '700',
+  fontStyle: 'italic',
+  color: '#fff',
+  margin: 3,
+  backgroundColor: '#c52b1d70',
+  padding: 5.7,
+  height: 'auto',
+  width: 150,
+    borderRadius: 6,
+
+},
+PriceContainer:{
+    height: 'auto',
+  width: 150,
+    backgroundColor: '#c52b1d6e',
+  padding: 5.7,
+  margin: 3,
+      borderRadius: 6,
+    marginBottom: 15
+
+
+
+}
+
 
 
 
