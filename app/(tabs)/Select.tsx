@@ -54,6 +54,7 @@ const filteredItems = entries.filter((dish) =>
 
   const clearSelection = () => {
     setSelectedItems([]);
+    console.log('Selection cleared');
   };
   
 const toggleSelection = (dish: DishEntries) => {
