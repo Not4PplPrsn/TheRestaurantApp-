@@ -56,7 +56,7 @@ export default function Bin(){
           <Text style={styles.heading}>Deleted Items</Text>
 
         <ScrollView 
-            contentContainerStyle = {{ justifyContent: "space-around"}}
+            contentContainerStyle = {{ justifyContent: "space-around",  padding : 10  }}
 
         >
     {recycleBin.map((id) => (
@@ -68,7 +68,7 @@ export default function Bin(){
         />
         <Text>{id.dishName}</Text>
         <Text style={styles.descriptionText} >{id.description}</Text>
-        <Text style={styles.baseLineText}>Average Price= R  {id.price}</Text>
+        <Text style={styles.baseLineText}>Average Price: R{id.price}</Text>
 
       <TouchableOpacity
       onPress={() => restoreItems(id.id)}

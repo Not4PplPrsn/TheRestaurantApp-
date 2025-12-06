@@ -78,7 +78,7 @@ export default function DetailedCart(){
         {id.courseName}
       </Text>
       <Text style={styles.baseLineText}>
-        Average Price=  R{id.price}
+        Average Price: R{id.price}
       </Text>
 
       </View>))}
@@ -122,9 +122,9 @@ heading:{
   
 },
 baseLineText:{
-  fontSize: 5,
+  fontSize: 8,
   fontWeight:'300',
-  color: '#332d2dff'
+  color: '#8cad82ff'
 },
 heading2:{
   fontSize: 20,
@@ -163,8 +163,8 @@ ImageDisplay: {
 },
 theItemContainer: {
   height: 'auto', 
-  width: 330, 
-  padding: 3, 
+  width: 'auto', 
+  padding: 8, 
   backgroundColor: '#e0d3c1e0',
   borderRadius: 20.,
   marginBottom:2,
