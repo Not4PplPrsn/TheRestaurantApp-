@@ -113,7 +113,7 @@ if (wordCount < 50 || wordCount > 70) {
             </TouchableOpacity>
     
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 90, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop: 10, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       activeOpacity={0.6}
@@ -242,7 +242,7 @@ heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 8,
+  marginTop: 10,
   alignSelf: 'center',
   color: '#3b3838ff',
   width:'auto',
