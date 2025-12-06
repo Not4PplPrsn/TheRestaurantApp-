@@ -4,7 +4,7 @@ import { ImageBackground } from 'expo-image';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { DishEntries, useDishStore,useCartStore } from '@/functions/DishesEntries';
 import { Alert } from 'react-native';
-import { use, useState } from 'react';
+import { use, useRef, useState } from 'react';
 //This will be used in the check boxes for the dishes  
 import { Checkbox, Menu, Provider as PaperProvider, Button } from 'react-native-paper';
 
@@ -16,10 +16,8 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 
-
-
-
 export default function DishSelection() {
+  const timeoutRef = useRef<number | null>(null); // Built in time out function in node js
 
      const { onTouch } = useTabBarInactivity(); /**Calling the functions in need for the scroll view so the bottom tab will disappear */
 /**Standardizing all function and storage units for data sets */
@@ -95,6 +93,22 @@ const handleAddSelectedItems = () => {
   Alert.alert('Success', 'Items added to cart.');
 };
 
+let toggleMenu = () => {
+    if (menuVisible) {
+      // if already open → close immediately
+      setMenuVisible(false);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    } else {
+      // if closed → open and set timeout to close
+      setMenuVisible(true);
+      timeoutRef.current = setTimeout(() => {
+        setMenuVisible(false);
+      }, 8000); // 8 seconds must pass before auto close
+    }
+}
+
 
 
   return(
@@ -123,11 +137,13 @@ const handleAddSelectedItems = () => {
 <Menu //(W3Schools, 2025)
         // this is when the button is inactive
           visible={menuVisible}// (The IIE, 2025)
-          onDismiss={() => setMenuVisible(false)}
+          onDismiss={() => {setMenuVisible(false);
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          }}
           anchor={
             <Button //(W3Schools, 2025)
               mode="outlined" 
-              onPress={() => {setMenuVisible(true)
+              onPress={() => {toggleMenu();
                  console.log('Menu opens when the button is pressed');  
               }}
               style={styles.dropdownButton}
@@ -151,7 +167,6 @@ const handleAddSelectedItems = () => {
             titleStyle={styles.menuItemText}
               onPress={() => {
             setSelectedCourse(course as CourseType);
-            setTimeout(() => setMenuVisible(true), 20); // closes after 20ms
  //  update selected course
     }}
             />     
