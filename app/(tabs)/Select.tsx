@@ -90,6 +90,7 @@ const handleAddSelectedItems = () => {
   // Reset selection and total
   setSelectedItems([]);
   setTotalPrice(0);
+  console.log('Items added to cart and selection reset.');
 
   Alert.alert('Success', 'Items added to cart.');
 };
