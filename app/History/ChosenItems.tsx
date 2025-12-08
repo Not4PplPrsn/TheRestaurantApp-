@@ -122,9 +122,10 @@ heading:{
   
 },
 baseLineText:{
-  fontSize: 8,
-  fontWeight:'300',
-  color: '#8cad82ff'
+  fontSize: 13,
+  fontWeight:'semibold',
+  color: '#8cad82ff',
+  fontFamily: 'arial',
 },
 heading2:{
   fontSize: 20,
