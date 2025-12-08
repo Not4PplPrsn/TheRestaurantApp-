@@ -95,13 +95,13 @@ const handleAddSelectedItems = () => {
 
 let toggleMenu = () => {
     if (menuVisible) {
-      // if already open → close immediately
+      // if already open it closes straight after
       setMenuVisible(false);
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     } else {
-      // if closed → open and set timeout to close
+      // if closed then opens and the begins the timer  to auto close 
       setMenuVisible(true);
       timeoutRef.current = setTimeout(() => {
         setMenuVisible(false);
