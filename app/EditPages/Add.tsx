@@ -72,6 +72,8 @@ if (wordCount < 50 || wordCount > 70) {
   setDishName('');
   setNewPrice(0);
   console.log('Dish added:', newDish);
+
+  Alert.alert('Dish added successfully!😊');
 };
 
     const pickImage = async () => {
