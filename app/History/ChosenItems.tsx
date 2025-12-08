@@ -45,7 +45,7 @@ export default function DetailedCart(){
 
           <Text style={styles.heading}>Cart</Text>
 
-<ScrollView>
+<ScrollView style={{marginBottom: 20, marginTop: 10}}>
     {cart.map((id ) => ( 
       <View key={id.id} /**key to help with displaying of items */
       style ={styles.theItemContainer} /**Styling for the container  */
@@ -55,7 +55,7 @@ export default function DetailedCart(){
               <TouchableOpacity
       onPress={()=> removeCartItem(id.id) /**Will Remove items like they never existed based on the id of the item in the array. */}
       >
-        <View style= {{justifyContent: 'space-around', alignItems: 'flex-end', margin: 5}}>
+        <View style= {{justifyContent: 'space-around', alignItems: 'flex-end', margin: 4}}>
           <Entypo name="circle-with-minus" color={'red'} size={30}
           />
         </View>
@@ -74,7 +74,7 @@ export default function DetailedCart(){
       <Text style={styles.descriptionText}>
         {id.description}
       </Text>
-      <Text style={styles.baseLineText}>
+      <Text style={styles.CourseNameText}>
         {id.courseName}
       </Text>
       <Text style={styles.baseLineText}>
@@ -124,7 +124,7 @@ heading:{
 baseLineText:{
   fontSize: 13,
   fontWeight:'semibold',
-  color: '#8cad82ff',
+  color: '#8f460aff',
   fontFamily: 'arial',
 },
 heading2:{
@@ -168,11 +168,16 @@ theItemContainer: {
   padding: 8, 
   backgroundColor: '#e0d3c1e0',
   borderRadius: 20.,
-  marginBottom:2,
-  marginTop: 2, 
   alignSelf: 'center',
   margin:30,
 },
+CourseNameText: {
+  fontSize: 12.25,
+  fontWeight: 'semibold',
+  fontFamily: 'Inter',
+  alignSelf: 'center',
+  marginVertical: 5,
+}
 
 
 
