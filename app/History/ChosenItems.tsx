@@ -110,7 +110,7 @@ heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 90,
+  marginTop: 15,
   alignSelf: 'center',
   color: '#3b3838ff',
   width:'auto',
