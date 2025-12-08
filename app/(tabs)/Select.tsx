@@ -287,12 +287,13 @@ const styles = StyleSheet.create({
   },
   heading2: {
     fontSize: 13,
-    color: '#b89826ff', // fixed invalid hex
+    color: '#a3500bff', // fixed invalid hex
     fontWeight: '600',
-    backgroundColor: '#eee5e5ab',
+    backgroundColor: '#eee5e5c4',
     width: 140,
     height: 'auto',
     margin: 20,
+    padding: 5, 
     
   },
   theItemContainer: {
