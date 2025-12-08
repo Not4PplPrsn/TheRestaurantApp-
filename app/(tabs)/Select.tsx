@@ -239,7 +239,9 @@ let toggleMenu = () => {
             
             />
             <Text style={styles.heading2}>{item.dishName}</Text>
-           
+
+            <Text style={styles.heading2}>{item.courseName}</Text>          
+            
             <Text style = {styles.PriceContainer}>Average Price: R{item.price.toFixed(2)}</Text>
           </View>
         </View>
@@ -290,7 +292,7 @@ const styles = StyleSheet.create({
     color: '#a3500bff', // fixed invalid hex
     fontWeight: '600',
     backgroundColor: '#eee5e5c4',
-    width: 140,
+    width: 'auto',
     height: 'auto',
     margin: 20,
     padding: 5, 
