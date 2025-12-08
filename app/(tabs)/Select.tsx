@@ -240,7 +240,7 @@ let toggleMenu = () => {
             />
             <Text style={styles.heading2}>{item.dishName}</Text>
            
-            <Text style = {styles.PriceContainer}>Average Price= R{item.price.toFixed(2)}</Text>
+            <Text style = {styles.PriceContainer}>Average Price: R{item.price.toFixed(2)}</Text>
           </View>
         </View>
       </TouchableOpacity>
