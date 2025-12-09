@@ -57,7 +57,7 @@ const filteredItems = entries.filter((dish) =>
   
 const toggleSelection = (dish: DishEntries) => {
   const isSelected = selectedItems.includes(dish.id); /**This handle the selection by filtering item by id */
-  let updatedSelection: number[]; /**Stpres the IDs of all selected items */
+  let updatedSelection: number[]; /**Stores the IDs of all selected items */
 
   if (isSelected) {
     updatedSelection = selectedItems.filter((id) => id !== dish.id);/**Does keep the selected item toggled  */
