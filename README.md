@@ -9,7 +9,11 @@ The establishment has asked to provide for them a new app which allow for catalo
  - For the button I chose not to use border, as the shadow already made the view look enticing added another dark element to it would over stimulate the user.
  - The input however, I used borders for so that the user can  more easily notice the inputs and they need.
 3.  List
+<<<<<<< HEAD
 - I made the list light blue so it would not clash with the clue at the corder of the page and made it so that the there  are no border outlines as the light blue already draws the attention of the user and make each item distinct.
+=======
+- I made the list light blue so it woul not clash with the clue at the corder of the page and made it so that the there  are no border outlines as the light blue already draws the attention of the user and make each item distinct.
+>>>>>>> 63687cbad0e900ce15e931655b05cdb9330fbc2f
 4. Made it so that only the bottom part of the screen could swipe/scroll as it would be redundant for the whole swipe when there is not more information beyond the array.
 5.  Description 
 - Made the description box white so that the user is more easily draw to th content and separate the description from  the rest of the item attributes.
@@ -23,9 +27,14 @@ The establishment has asked to provide for them a new app which allow for catalo
   - Black for the text since everything is light,
   - White for the headings and titles, and the content boxes used in the the deleted  and bin pages.
 
-  #### The Page
-  For the page I decided to go with  background that has linear gradient and  and an image background, to make the page more interesting. Then for the buttons I used for the remove and 
-
+  #### The Pages
+  For the page I decided to go with  background that has linear gradient and  and an image background, to make the page more interesting. Then for the button were brightly coloured to make clear that they are special. For the page that display the  the items I added the average price of each dish in each page:
+  - [The Home Page](./app/(tabs)/index.tsx)
+  - [The Adding Page](./app/EditPages/Add.tsx)
+  - [The Menu Page](./app/(tabs)/Select.tsx) 
+  - [The Cart Page](./app/History/ChosenItems.tsx)
+  - [The Bin](./app/History/RemovedItems.tsx)
+  
   ### The Programming 
   #### Install command 
   npm install zustand
@@ -37,6 +46,9 @@ The establishment has asked to provide for them a new app which allow for catalo
   npx expo install expo-media-library
   npx expo install expo-image-picker
   npm install react-native-paper
+  npx expo install expo-router 
+  npx react-native-safe-area-context 
+  npx react-native-screens
 
 
   #### The Screens 
@@ -72,7 +84,7 @@ I stored the function in  new file so that i can call them with zustand extensio
 - [The handling of the disappearance of bottom bar  ](./functions/AutoHidTabBar.ts)
 - [Where the style for the tab bar is stored](./functions/theDishArray.ts)
 
-I stored the styling of the bottom navigation separately as the nav bar reverted to the default style, without me calling the style separately. 
+I stored the styling of the bottom navigation separately as the nav bar reverted to the default style, without me calling the style separately. Added new log for each adding and removal function in the pages rather in the files containing the functions. 
  
  #### The navigation 
 
