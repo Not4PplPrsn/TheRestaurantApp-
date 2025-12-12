@@ -46,9 +46,6 @@ The establishment has asked to provide for them a new app which allow for catalo
   npx expo install expo-media-library
   npx expo install expo-image-picker
   npm install react-native-paper
-  npx expo install expo-router 
-  npx react-native-safe-area-context 
-  npx react-native-screens
 
 
   #### The Screens 
