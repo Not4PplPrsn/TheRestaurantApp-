@@ -26,7 +26,7 @@ export function useTabBarInactivity() { /**(W3Schools, 2025) */
           pointerEvents: 'auto',
         },
       });
-    }, 3000); // 7 seconds
+    }, 3000); // 3 seconds
   };
 
   useEffect(() => {
