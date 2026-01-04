@@ -71,6 +71,9 @@ export default function DetailedCart(){
       <Text>
         {id.dishName}
       </Text>
+      <Text>
+        {id.courseName}
+      </Text>
       <Text style={styles.descriptionText}>
         {id.description}
       </Text>
