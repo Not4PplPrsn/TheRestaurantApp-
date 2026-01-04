@@ -46,7 +46,7 @@ const entries = useDishStore ((state) => state.entries )
 
 
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 20, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop: 10, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       >
@@ -73,7 +73,7 @@ const entries = useDishStore ((state) => state.entries )
           
     {entries.map((dish) => ( /**The display for the array items so the user can see the items they wish to delete */
 
-      <><View style = {{flexDirection: 'column' , marginLeft: 30}}
+      <><View style = {{flexDirection: 'column' , marginLeft: 30, marginRight: 30}}
       key={dish.id}>
       <View style={styles.theItemContainer}>
 
