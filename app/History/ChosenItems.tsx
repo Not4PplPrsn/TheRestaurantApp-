@@ -72,11 +72,6 @@ export default function DetailedCart(){
         {id.dishName}
       </Text>
 
-      <View>
-      <Text>
-        {id.courseName}
-      </Text>
-      </View>
 
       <Text style={styles.baseLineText}>
         {id.description}
@@ -178,17 +173,21 @@ theItemContainer: {
   height: 'auto', 
   width: 'auto', 
   padding: 8, 
-  backgroundColor: '#e0d3c1e0',
-  borderRadius: 20.,
+  backgroundColor: '#f3b353ef',
+  borderBottomLeftRadius: 20.,
+  borderTopRightRadius: 20,
+  borderBottomRightRadius: 20.,
   alignSelf: 'center',
   margin:30,
 },
 CourseNameText: {
-  fontSize: 12.25,
+  fontSize: 14.25,
   fontWeight: 'semibold',
   fontFamily: 'Inter',
   alignSelf: 'center',
   marginVertical: 5,
+  color: '#fcfbfbff',
+  letterSpacing: 2.2,
 },
 Price:{
     fontSize: 12.5,
