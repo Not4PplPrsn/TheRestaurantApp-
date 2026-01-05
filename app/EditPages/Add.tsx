@@ -148,8 +148,8 @@ if (wordCount < 50 || wordCount > 70) {
   <View style={{flexDirection: 'row-reverse', justifyContent: 'space-between'}}>
     <TouchableOpacity
     onPress={pickImage} >
-    <View style={styles.imagePickerButton}>
-      <Text>Add Image</Text>
+    <View >
+      <Text style={{alignSelf: 'center', alignContent: 'center'}}> <Entypo name="camera" size={35} color="#080e20ff" /></Text>
     </View>
     </TouchableOpacity>
 
@@ -292,16 +292,7 @@ description: {
   height: 150
 },
 
-imagePickerButton: {
-  width: 95,
-  height: 40,
-  backgroundColor: '#d6c2c2ff',
-  alignSelf: 'center', 
-  borderRadius : 6,
-  marginStart: 10,
-  alignItems: 'center',
-  padding: 10, 
-}, 
+
 pickedImageDisplay: {
   width : 140,
   height: 100,
