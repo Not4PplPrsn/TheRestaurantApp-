@@ -97,7 +97,7 @@ const entries = useDishStore ((state) => state.entries )
           <Text style={styles.heading2}>Course</Text>
           <Text style={styles.dishNames}>{dish.courseName}</Text>
         </View>
-        <Text style={styles.PriceContainer}> Average Price:  R {dish.price}</Text>
+        <Text style={styles.PriceContainer}> <Text style={styles.heading2}>Average Price:</Text>  R {dish.price}</Text>
       </View>
       
       <View style={{ flexBasis: 'auto', alignSelf: 'center', margin:3 }}>
@@ -149,7 +149,7 @@ baseLineText:{
   fontSize:11.5,
   fontWeight:'300',
   color: '#332d2dff',
-  margin: 12,
+  margin: 3,
   justifyContent: 'space-around',
   padding: 5,
   textAlign:  'justify'
@@ -158,7 +158,8 @@ heading2:{
   fontSize: 13,
   color: '#fff',
   fontWeight: '600',
-  margin: 10
+  marginTop: 10,
+  marginBottom: 3
 
 },
 addButton:{
@@ -186,7 +187,7 @@ buttonText: {
 theItemContainer: {
   height: 'auto', 
   width: 330, 
-  padding: 3, 
+  padding: 9.5, 
   backgroundColor: '#f3b25ce0',
   borderBottomRightRadius: 20.,
   borderTopLeftRadius: 20,
@@ -205,11 +206,10 @@ ImageDisplay: {
 },
 dishNames: {
   fontSize: 12,
-  fontWeight: '700',
+  fontWeight: '400',
   fontStyle: 'italic',
-  color: '#fff',
-  margin: 3,
-  backgroundColor: '#c52b1d70',
+  color: '#1f1d1dff',
+  marginTop: 1,
   padding: 5.7,
   height: 'auto',
   width: 150,
