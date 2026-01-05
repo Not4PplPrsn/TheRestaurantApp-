@@ -46,7 +46,7 @@ const entries = useDishStore ((state) => state.entries )
 
 
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 10, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop: 5, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       >

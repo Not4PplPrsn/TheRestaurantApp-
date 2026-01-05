@@ -125,7 +125,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text style={styles.Price}>Average Price: R{entry.price}</Text>
+          <Text style={styles.Price}>Average Price: R {entry.price}</Text>
         </View>
         </View>
       ))/**(W3Schools, 2025) */}
@@ -221,7 +221,7 @@ dishImage:{
   
 },
 dishNames: {
-  fontSize: 10,
+  fontSize: 16,
   fontWeight: '700',
   fontStyle: 'italic',
   color: '#fff',
@@ -229,9 +229,9 @@ dishNames: {
 },
 Price: {
   fontSize: 10.5,
-  fontWeight: '600',
+  fontWeight: '500',
   fontStyle: 'normal',
-  color: 'rgba(58, 82, 82, 0.85)',
+  color: 'rgba(247, 92, 72, 0.94)',
   height: 'auto',
   width: 'auto',
   alignSelf: 'flex-end',
