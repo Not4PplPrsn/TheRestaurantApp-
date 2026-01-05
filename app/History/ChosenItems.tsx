@@ -68,20 +68,24 @@ export default function DetailedCart(){
       style={styles.ImageDisplay}
       />
       
-      <Text>
+      <Text style={styles.dishNames}>
         {id.dishName}
       </Text>
+
+      <View>
       <Text>
         {id.courseName}
       </Text>
-      <Text style={styles.descriptionText}>
+      </View>
+
+      <Text style={styles.baseLineText}>
         {id.description}
       </Text>
       <Text style={styles.CourseNameText}>
         {id.courseName}
       </Text>
       <Text style={styles.baseLineText}>
-        Average Price: R{id.price}
+       <Text style={styles.Price}> Average Price:</Text> R {id.price}
       </Text>
 
       </View>))}
@@ -126,10 +130,14 @@ heading:{
   
 },
 baseLineText:{
-  fontSize: 13,
-  fontWeight:'semibold',
-  color: '#8f460aff',
-  fontFamily: 'arial',
+  fontSize:11.5,
+  fontWeight:'300',
+  color: '#332d2dff',
+  margin: 3,
+  justifyContent: 'space-around',
+  padding: 5,
+  textAlign:  'justify',
+  alignSelf: 'flex-end'
 },
 heading2:{
   fontSize: 20,
@@ -181,7 +189,26 @@ CourseNameText: {
   fontFamily: 'Inter',
   alignSelf: 'center',
   marginVertical: 5,
-}
+},
+Price:{
+    fontSize: 12.5,
+  fontWeight: '500',
+  fontStyle: 'normal',
+  color: 'rgba(247, 92, 72, 0.94)',
+  height: 'auto',
+  width: 'auto',
+  alignSelf: 'flex-end',
+  margin: 4,  
+
+},
+dishNames: {
+  fontSize: 16,
+  fontWeight: '700',
+  fontStyle: 'italic',
+  color: '#fff',
+  marginTop: 0.05
+},
+
 
 
 

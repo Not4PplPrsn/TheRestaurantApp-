@@ -66,14 +66,16 @@ export default function Bin(){
         style={styles.ImageDisplay}
 
         />
-        <Text>{id.dishName}</Text>
-        <Text style={styles.descriptionText} >{id.description}</Text>
-        <Text style={styles.baseLineText}>Average Price: R{id.price}</Text>
+        <Text style={styles.dishNames}>{id.dishName}</Text>
+        <Text style={styles.baseLineText} >{id.description}</Text>
+
+        <Text style={styles.baseLineText}>
+          <Text style={styles.Price}>Average Price:</Text> R {id.price}</Text>
 
       <TouchableOpacity
       onPress={() => restoreItems(id.id)}
       >
-        <View>
+        <View style={ { alignSelf: 'flex-end', margin: 6}}>
           <Entypo name='back' color={"#1779e9ff"} size={30}/>
         </View>
       </TouchableOpacity>
@@ -115,13 +117,14 @@ heading:{
   
 },
 baseLineText:{
-  fontSize: 10,
-  fontWeight:'500',
-  color: '#110101ff',
-  fontFamily: 'arial',
-  
-},
-heading2:{
+  fontSize:11.5,
+  fontWeight:'300',
+  color: '#332d2dff',
+  margin: 3,
+  justifyContent: 'space-around',
+  padding: 5,
+  textAlign:  'justify'
+},heading2:{
   fontSize: 20,
   color: '#272424fff',
   fontWeight: '600'
@@ -152,12 +155,13 @@ theItemContainer: {
   height: 'auto', 
   width: 330, 
   padding: 3, 
-  backgroundColor: '#e0d3c1e0',
-  borderRadius: 20.,
-  marginBottom:2,
-  marginTop: 2, 
+  backgroundColor: '#f19824de',
+  borderBottomLeftRadius: 20,
+  borderBottomRightRadius: 20,
+  borderTopLeftRadius: 20,
   alignSelf: 'center',
-  margin:30,
+  margin:30, 
+  
 },
 ImageDisplay: {
   width : 280,
@@ -167,6 +171,26 @@ ImageDisplay: {
   alignSelf: 'center'
   
 },
+Price:{
+    fontSize: 12.5,
+  fontWeight: '500',
+  fontStyle: 'normal',
+  color: 'rgba(247, 92, 72, 0.94)',
+  height: 'auto',
+  width: 'auto',
+  alignSelf: 'flex-end',
+  margin: 4,  
+
+},
+dishNames: {
+  fontSize: 16,
+  fontWeight: '700',
+  fontStyle: 'italic',
+  color: '#fff',
+  marginTop: 0.05
+},
+
+
 
 
 
