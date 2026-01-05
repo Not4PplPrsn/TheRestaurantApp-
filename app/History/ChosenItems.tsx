@@ -108,6 +108,7 @@ descriptionText:{
   fontWeight: '500',
   alignSelf: 'flex-start',
   margin: 10,
+  textAlign: 'justify'
 },
 heading:{
   fontSize: 35,

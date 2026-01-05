@@ -90,14 +90,14 @@ const entries = useDishStore ((state) => state.entries )
 
         <View>
           <Text style={styles.heading2}>Description</Text>
-          <Text>{dish.description}</Text>
+          <Text style= {styles.baseLineText}>{dish.description}</Text>
         </View>
 
         <View>
           <Text style={styles.heading2}>Course</Text>
           <Text style={styles.dishNames}>{dish.courseName}</Text>
         </View>
-        <Text style={styles.PriceContainer}> Average Price:  R{dish.price}</Text>
+        <Text style={styles.PriceContainer}> Average Price:  R {dish.price}</Text>
       </View>
       
       <View style={{ flexBasis: 'auto', alignSelf: 'center', margin:3 }}>
@@ -146,9 +146,13 @@ heading:{
   
 },
 baseLineText:{
-  fontSize: 5,
+  fontSize:11.5,
   fontWeight:'300',
-  color: '#332d2dff'
+  color: '#332d2dff',
+  margin: 12,
+  justifyContent: 'space-around',
+  padding: 5,
+  textAlign:  'justify'
 },
 heading2:{
   fontSize: 13,
