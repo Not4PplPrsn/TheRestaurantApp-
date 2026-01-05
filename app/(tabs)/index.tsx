@@ -172,7 +172,8 @@ descriptionText:{
   fontSize: 9,
   width: 160,
   flexWrap:'wrap',
-  justifyContent:'flex-start'
+  justifyContent:'flex-start',
+  textAlign: 'justify'
 },
 heading:{
   fontSize: 35,
