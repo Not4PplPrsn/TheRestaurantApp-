@@ -60,7 +60,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text style={styles.Price}>Average Price: R{entry.price}</Text>
+          <Text style={styles.Price}>Average Price: R {entry.price}</Text>
         </View>
         </View>
       ))}
@@ -93,7 +93,7 @@ export default function HomeScreen() {
           </Text>
         </View>
         <View>
-          <Text style={styles.Price}>Average Price: R{entry.price}</Text>
+          <Text style={styles.Price}>Average Price: R {entry.price}</Text>
         </View>
         </View>
       ))}
