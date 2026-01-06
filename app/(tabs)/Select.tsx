@@ -242,7 +242,7 @@ let toggleMenu = () => {
 
             <Text style={styles.heading2}>{item.courseName}</Text>          
             
-            <Text style = {styles.PriceContainer}>Average Price: R{item.price.toFixed(2)}</Text>
+            <Text style = {styles.PriceContainer}>Average Price: R {item.price.toFixed(2)}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     backgroundColor: '#eee5e5c4',
     width: 'auto',
-    height: 'auto',
+    height: 26,
     margin: 20,
     padding: 5, 
     
@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
   theItemContainer: {
     height: 'auto',
     width: 'auto',
-    padding: 3,
+    padding: 2,
     backgroundColor: '#f3b25ce0',
     borderBottomRightRadius: 20,
     borderTopLeftRadius: 20,
@@ -319,16 +319,17 @@ const styles = StyleSheet.create({
   },
   PriceContainer: {
     height: 'auto',
-    width: 150,
-    backgroundColor: '#c52b1d6e',
+    width: 145,
+    backgroundColor: '#f56e30ef',
     padding: 5.7,
-    margin: 3,
+    margin: 6,
     borderRadius: 6,
     marginBottom: 15,
     fontSize: 10,
     color: '#fff',  
     textDecorationStyle: 'double',
-    letterSpacing: 0.25,
+    letterSpacing: 0.65,
+    alignSelf: 'flex-end'
 
   },
   selectedContainer: {
