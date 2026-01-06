@@ -198,7 +198,7 @@ style={styles.theDescription}
                 
                 >
                   <View style = {{ flexDirection: 'column', height: 60, padding:2, alignSelf:'flex-start'}}>
-                  <RadioButton.Item label='Entrée' value='Entree' labelStyle= {styles.radioButtonGroup}/>
+                  <RadioButton.Item label='Entrée' value='Entrée' labelStyle= {styles.radioButtonGroup}/>
                   <RadioButton.Item label='Main' value='Main' labelStyle= {styles.radioButtonGroup}/>
                   <RadioButton.Item label='Dessert' value='Dessert' labelStyle= {styles.radioButtonGroup}/>
                   </View>
@@ -301,7 +301,7 @@ pickedImageDisplay: {
 },
 
 FormContainer: {
-  height: 490, 
+  height: 520, 
   width: 330, 
   padding: 3, 
   backgroundColor: '#f3b25ce0',
@@ -313,7 +313,7 @@ FormContainer: {
 },
 theDescription:{
   width: 270,
-  height: 70,
+  height: 150,
   backgroundColor: '#c52b1d8c',
   borderRadius: 12,
   fontSize: 10.75
