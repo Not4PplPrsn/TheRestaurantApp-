@@ -235,7 +235,7 @@ let toggleMenu = () => {
           <View style={{ marginLeft:25,width:250, borderRadius: 15, }}>
             <ImageBackground
             source={item.image}
-            style = {[StyleSheet.absoluteFill, {opacity: 60 }]}
+            style = {[StyleSheet.absoluteFill, {opacity: 60, borderRadius: 15, overflow: 'hidden'}]}
             
             />
             <Text style={styles.heading2}>{item.dishName}</Text>
