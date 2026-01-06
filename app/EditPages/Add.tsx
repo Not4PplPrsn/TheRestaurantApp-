@@ -115,7 +115,7 @@ if (wordCount < 50 || wordCount > 70) {
             </TouchableOpacity>
     
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 10, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop: 4.5, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       activeOpacity={0.6}
@@ -208,7 +208,7 @@ style={styles.theDescription}
 </View> 
 
 
-        <View style={{flexBasis: 'auto', alignSelf: 'center', margin:10}}>
+        <View style={{flexBasis: 'auto', alignSelf: 'center', marginBottom:10}}>
                 <TouchableOpacity
                 onPress={handleAdd}
                 
@@ -295,13 +295,14 @@ description: {
 
 pickedImageDisplay: {
   width : 140,
-  height: 100,
+  height: 80,
   borderRadius: 7,
+  margin: 7
   
 },
 
 FormContainer: {
-  height: 520, 
+  height: 525, 
   width: 330, 
   padding: 3, 
   backgroundColor: '#f3b25ce0',
