@@ -57,7 +57,7 @@ const filteredItems = entries.filter((dish) =>
   
 const toggleSelection = (dish: DishEntries) => {
   const isSelected = selectedItems.includes(dish.id); /**This handle the selection by filtering item by id */
-  let updatedSelection: number[]; /**Stores the IDs of all selected items */
+  let  updatedSelection: number[]; /**Stores the IDs of all selected items */
 
   if (isSelected) {
     updatedSelection = selectedItems.filter((id) => id !== dish.id);/**Does keep the selected item toggled  */
@@ -76,6 +76,8 @@ const toggleSelection = (dish: DishEntries) => {
   setTotalPrice(newTotal); 
   
 };
+
+
 
 const handleAddSelectedItems = () => {
   // Add selected dishes to cart using filteredItems
@@ -184,18 +186,17 @@ let toggleMenu = () => {
 
 
         <View style = {{justifyContent: 'space-around', }}>
-            <TouchableOpacity
+             <TouchableOpacity
             onPress={ handleAddSelectedItems} // called the function so the onpress knows what logic to use when adding 
             style={{alignSelf: 'flex-start'}}
             >
               <View  style ={ styles.buttonAdd}>
                 <Text style={styles.buttonText}>
-                <Text style ={{paddingEnd: 20}}><FontAwesome name="opencart" size={20} color="#c97f1f"  style={{margin: 20}}/></Text>
-                         Add 
+                <Text style ={{paddingEnd: 20}}><FontAwesome name="opencart" size={40} color="#c97f1f"  style={{margin: 20}}/></Text>
                 </Text>
               </View>
-            </TouchableOpacity>
-
+            </TouchableOpacity>  
+            
             <TouchableOpacity
             onPress={clearSelection}
             >
@@ -214,7 +215,7 @@ let toggleMenu = () => {
 <ScrollView
         onTouchStart={onTouch} // this will remove the bottom tab from the bottom screen so the user can read the content fully
 
-        contentContainerStyle= {{ paddingBottom: 50}}
+        contentContainerStyle= {{ marginBottom: 10, width: 'auto', height: 450}}
 
 >
   <View >
