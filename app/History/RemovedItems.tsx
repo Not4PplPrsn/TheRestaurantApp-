@@ -76,7 +76,7 @@ export default function Bin(){
       onPress={() => restoreItems(id.id)}
       >
         <View style={ { alignSelf: 'flex-end', margin: 6}}>
-          <Entypo name='back' color={"#1779e9ff"} size={30}/>
+          <Ionicons name="arrow-undo-circle-outline" color={"#df522fff"} size={30}/>
         </View>
       </TouchableOpacity>
       </View>
