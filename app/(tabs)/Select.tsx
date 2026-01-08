@@ -176,8 +176,8 @@ let toggleMenu = () => {
         </Menu>
         </View>
 
-        <View style={{ alignSelf: 'flex-start', height: 'auto', width: 'auto', padding:0.0005, backgroundColor: '#f05d5dff', borderRadius: 6 , margin: 20, }}>
-            <Text style={{backgroundColor: '#eed1acff', margin: 8, borderRadius:10, height: 40, width:90, fontSize: 10, padding: 10 }}>   
+        <View >
+            <Text style={{backgroundColor: '#ec6f3eff', margin: 15, borderRadius:10, height: 40, width:120, fontSize: 20, padding: 5, color: '#fff' }}>   
               R {totalPrice.toFixed(2)}
             </Text>
         </View>
@@ -187,7 +187,7 @@ let toggleMenu = () => {
 
         <View style = {{justifyContent: 'space-around', }}>
              <TouchableOpacity
-            onPress={ handleAddSelectedItems} // called the function so the onpress knows what logic to use when adding 
+            onPress={ handleAddSelectedItems} // called the function so the on-press knows what logic to use when adding 
             style={{alignSelf: 'flex-start'}}
             >
               <View  style ={ styles.buttonAdd}>
