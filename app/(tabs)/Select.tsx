@@ -152,7 +152,7 @@ let toggleMenu = () => {
               contentStyle={styles.dropdownButtonContent}
               
             >
-              {selectedCourse || 'Select Course'} 
+              <Text style={styles.buttonText}>Course Filter: {selectedCourse} </Text>
             </Button>
           }
           
@@ -356,9 +356,10 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 15,
     fontFamily: 'georgia',  
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(233, 134, 88)',
     height: 45.8,
-    fontSize:15
+    fontSize:15,
+    borderWidth:0
   },
     dropdownButtonContent: {
     justifyContent: 'space-evenly',
@@ -398,9 +399,9 @@ const styles = StyleSheet.create({
     },
     buttonText: {
       color: '#ffff',
-      fontSize: 16,
-      fontFamily: 'monospace',
-      letterSpacing:0.25
+      fontSize: 11.55,
+      fontFamily: 'Roboto',
+      letterSpacing:0.65
 
     }
 
