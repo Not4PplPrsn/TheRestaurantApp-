@@ -46,7 +46,7 @@ const entries = useDishStore ((state) => state.entries )
 
 
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 5, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop:2, alignSelf: 'flex-end', marginEnd: 10,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       >
@@ -62,8 +62,9 @@ const entries = useDishStore ((state) => state.entries )
           <Text style={styles.buttonText}>Remove</Text>
         </View>
       </TouchableOpacity>
-      </View>
-          <Text style={styles.heading}>Editing</Text>
+      </View>      <ScrollView>
+
+          <Text style={styles.heading}>Remove</Text>
 
       <ScrollView
       horizontal={true}
@@ -109,7 +110,7 @@ const entries = useDishStore ((state) => state.entries )
               
             }
           >
-            <View style={{ width: 45, height: 45, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 5, alignItems: 'center' }}>
+            <View style={{ width: 45, height: 45, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 2, alignItems: 'center' }}>
               <MaterialIcons name="remove-circle" size={40} color={'#da2846a2'} />
             </View>
           </TouchableOpacity>
@@ -118,7 +119,7 @@ const entries = useDishStore ((state) => state.entries )
       ))}
       </ScrollView>
 
-      
+      </ScrollView>
       
 
 
@@ -137,13 +138,13 @@ heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 10,
+  marginTop: 6,
   alignSelf: 'center',
   color: '#3b3838ff',
   width:'auto',
   borderBottomColor: '#ee9c9ce8',
   borderBottomWidth: 5,
-  lineHeight: 70,
+  lineHeight: 55,
   alignItems: 'center',
   alignContent: 'center'
   
