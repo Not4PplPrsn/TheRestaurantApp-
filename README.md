@@ -48,9 +48,9 @@ The establishment has asked to provide for them a new app which allow for catalo
   - Separate the  initial programme into multiple page which handle different function like the add off new items into the array and the remove of those items.
 
   - Added new pages like:
-   1. The bin page display and and show  
-
-   2. The Cart page to display the deleted items 
+   1. The Cart page displays the selected items which the user has selected.  
+   
+   2. The Bin page to display the deleted items.
 
    Here are all Screen  folders containing the screen
 
