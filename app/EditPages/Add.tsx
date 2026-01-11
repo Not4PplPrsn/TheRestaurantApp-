@@ -139,6 +139,9 @@ if (wordCount < 50 || wordCount > 70) {
           
 
           <Text style={styles.heading}>Adding</Text>
+          
+      <ScrollView>
+
   <View style = {styles.FormContainer}>
     
   <View style={{margin: 25.4,   }}> 
@@ -218,6 +221,7 @@ style={styles.theDescription}
                   </View>
                 </TouchableOpacity>
         </View>
+        </ScrollView>
       
       </ImageBackground>
     );
