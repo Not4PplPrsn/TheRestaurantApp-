@@ -72,7 +72,7 @@ export default function DetailedCart(){
         {id.dishName}
       </Text>
 
-
+      <Text style={styles.heading2}> Description:</Text>
       <Text style={styles.baseLineText}>
         {id.description}
       </Text>
@@ -135,9 +135,12 @@ baseLineText:{
   alignSelf: 'flex-end'
 },
 heading2:{
-  fontSize: 20,
-  color: '#272424fff',
-  fontWeight: '600'
+  fontSize: 13,
+  color: '#fff',
+  fontWeight: '600',
+  marginTop: 10,
+  marginBottom: 3
+
 },
 addButton:{
   width: 76,
