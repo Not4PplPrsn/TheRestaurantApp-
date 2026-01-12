@@ -175,7 +175,7 @@ ImageDisplay: {
 theItemContainer: {
   height: 'auto', 
   width: 'auto', 
-  padding: 8, 
+  padding:4, 
   backgroundColor: '#f3b353ef',
   borderBottomLeftRadius: 20.,
   borderTopRightRadius: 20,
