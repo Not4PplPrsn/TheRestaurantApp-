@@ -143,17 +143,16 @@ let toggleMenu = () => {
             if (timeoutRef.current) clearTimeout(timeoutRef.current);
           }}
           anchor={
-            <Button //(W3Schools, 2025)
-              mode="outlined" 
+            <TouchableOpacity //(W3Schools, 2025)
               onPress={() => {toggleMenu();
                  console.log('Menu opens when the button is pressed');  
               }}
               style={styles.dropdownButton}
-              contentStyle={styles.dropdownButtonContent}
               
             >
-              <Text style={styles.buttonText}>Course Filter: {selectedCourse} </Text>
-            </Button>
+              <Text style={styles.buttonText}>Course Filter: <Text style={{fontWeight: 'bold', fontSize: 13, flexDirection: "column"}}>{selectedCourse}</Text>
+              </Text>
+            </TouchableOpacity>
           }
           
 
@@ -177,7 +176,7 @@ let toggleMenu = () => {
         </View>
 
         <View >
-            <Text style={{backgroundColor: '#ec6f3eff', margin: 15, borderRadius:10, height: 40, width:120, fontSize: 20, padding: 5, color: '#fff' }}>   
+            <Text style={{backgroundColor: '#ec6f3eff', margin: 15, borderRadius:10, height: 40, width:120, fontSize: 20, padding: 5, color: '#fff', flexDirection: 'column' }}>   
               R {totalPrice.toFixed(2)}
             </Text>
         </View>
@@ -360,7 +359,9 @@ const styles = StyleSheet.create({
     height: 45.8,
     fontSize:15,
     borderWidth:0,
-    padding: 3
+    textAlign: 'center',
+    justifyContent: 'center',
+    padding: 10
   },
     dropdownButtonContent: {
     justifyContent: 'space-evenly',
