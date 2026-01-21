@@ -351,7 +351,7 @@ const styles = StyleSheet.create({
     color: '#007AFF',
   },
     dropdownButton: {
-    width: 160,
+    width: 185,
     marginBottom: 20,
     borderColor: 'gray',
     borderRadius: 15,
@@ -359,7 +359,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(233, 134, 88)',
     height: 45.8,
     fontSize:15,
-    borderWidth:0
+    borderWidth:0,
+    padding: 3
   },
     dropdownButtonContent: {
     justifyContent: 'space-evenly',
