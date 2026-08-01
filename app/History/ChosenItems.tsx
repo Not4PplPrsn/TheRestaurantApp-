@@ -68,20 +68,19 @@ export default function DetailedCart(){
       style={styles.ImageDisplay}
       />
       
-      <Text>
+      <Text style={styles.dishNames}>
         {id.dishName}
       </Text>
-      <Text>
-        {id.courseName}
-      </Text>
-      <Text style={styles.descriptionText}>
+
+      <Text style={styles.heading2}> Description:</Text>
+      <Text style={styles.baseLineText}>
         {id.description}
       </Text>
       <Text style={styles.CourseNameText}>
         {id.courseName}
       </Text>
       <Text style={styles.baseLineText}>
-        Average Price: R{id.price}
+       <Text style={styles.Price}> Average Price:</Text> R {id.price}
       </Text>
 
       </View>))}
@@ -108,6 +107,7 @@ descriptionText:{
   fontWeight: '500',
   alignSelf: 'flex-start',
   margin: 10,
+  textAlign: 'justify'
 },
 heading:{
   fontSize: 35,
@@ -125,15 +125,22 @@ heading:{
   
 },
 baseLineText:{
-  fontSize: 13,
-  fontWeight:'semibold',
-  color: '#8f460aff',
-  fontFamily: 'arial',
+  fontSize:11.5,
+  fontWeight:'300',
+  color: '#332d2dff',
+  margin: 3,
+  justifyContent: 'space-around',
+  padding: 5,
+  textAlign:  'justify',
+  alignSelf: 'flex-end'
 },
 heading2:{
-  fontSize: 20,
-  color: '#272424fff',
-  fontWeight: '600'
+  fontSize: 13,
+  color: '#fff',
+  fontWeight: '600',
+  marginTop: 10,
+  marginBottom: 3
+
 },
 addButton:{
   width: 76,
@@ -168,19 +175,42 @@ ImageDisplay: {
 theItemContainer: {
   height: 'auto', 
   width: 'auto', 
-  padding: 8, 
-  backgroundColor: '#e0d3c1e0',
-  borderRadius: 20.,
+  padding:4, 
+  backgroundColor: '#f3b353ef',
+  borderBottomLeftRadius: 20.,
+  borderTopRightRadius: 20,
+  borderBottomRightRadius: 20.,
   alignSelf: 'center',
   margin:30,
 },
 CourseNameText: {
-  fontSize: 12.25,
+  fontSize: 14.25,
   fontWeight: 'semibold',
   fontFamily: 'Inter',
   alignSelf: 'center',
   marginVertical: 5,
-}
+  color: '#fcfbfbff',
+  letterSpacing: 2.2,
+},
+Price:{
+    fontSize: 12.5,
+  fontWeight: '500',
+  fontStyle: 'normal',
+  color: 'rgba(247, 92, 72, 0.94)',
+  height: 'auto',
+  width: 'auto',
+  alignSelf: 'flex-end',
+  margin: 4,  
+
+},
+dishNames: {
+  fontSize: 16,
+  fontWeight: '700',
+  fontStyle: 'italic',
+  color: '#fff',
+  marginTop: 0.05
+},
+
 
 
 

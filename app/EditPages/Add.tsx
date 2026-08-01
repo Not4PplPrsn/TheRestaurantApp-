@@ -115,7 +115,7 @@ if (wordCount < 50 || wordCount > 70) {
             </TouchableOpacity>
     
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 10, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop: 4.5, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       activeOpacity={0.6}
@@ -139,6 +139,9 @@ if (wordCount < 50 || wordCount > 70) {
           
 
           <Text style={styles.heading}>Adding</Text>
+          
+      <ScrollView>
+
   <View style = {styles.FormContainer}>
     
   <View style={{margin: 25.4,   }}> 
@@ -148,8 +151,8 @@ if (wordCount < 50 || wordCount > 70) {
   <View style={{flexDirection: 'row-reverse', justifyContent: 'space-between'}}>
     <TouchableOpacity
     onPress={pickImage} >
-    <View style={styles.imagePickerButton}>
-      <Text>Add Image</Text>
+    <View >
+      <Text style={{alignSelf: 'center', alignContent: 'center'}}> <Entypo name="camera" size={35} color="#080e20ff" /></Text>
     </View>
     </TouchableOpacity>
 
@@ -198,7 +201,7 @@ style={styles.theDescription}
                 
                 >
                   <View style = {{ flexDirection: 'column', height: 60, padding:2, alignSelf:'flex-start'}}>
-                  <RadioButton.Item label='Entrée' value='Entree' labelStyle= {styles.radioButtonGroup}/>
+                  <RadioButton.Item label='Entrée' value='Entrée' labelStyle= {styles.radioButtonGroup}/>
                   <RadioButton.Item label='Main' value='Main' labelStyle= {styles.radioButtonGroup}/>
                   <RadioButton.Item label='Dessert' value='Dessert' labelStyle= {styles.radioButtonGroup}/>
                   </View>
@@ -208,7 +211,7 @@ style={styles.theDescription}
 </View> 
 
 
-        <View style={{flexBasis: 'auto', alignSelf: 'center', margin:10}}>
+        <View style={{flexBasis: 'auto', alignSelf: 'center', marginBottom:10}}>
                 <TouchableOpacity
                 onPress={handleAdd}
                 
@@ -218,6 +221,7 @@ style={styles.theDescription}
                   </View>
                 </TouchableOpacity>
         </View>
+        </ScrollView>
       
       </ImageBackground>
     );
@@ -292,25 +296,17 @@ description: {
   height: 150
 },
 
-imagePickerButton: {
-  width: 95,
-  height: 40,
-  backgroundColor: '#d6c2c2ff',
-  alignSelf: 'center', 
-  borderRadius : 6,
-  marginStart: 10,
-  alignItems: 'center',
-  padding: 10, 
-}, 
+
 pickedImageDisplay: {
   width : 140,
-  height: 100,
+  height: 80,
   borderRadius: 7,
+  margin: 7
   
 },
 
 FormContainer: {
-  height: 490, 
+  height: 525, 
   width: 330, 
   padding: 3, 
   backgroundColor: '#f3b25ce0',
@@ -322,7 +318,7 @@ FormContainer: {
 },
 theDescription:{
   width: 270,
-  height: 70,
+  height: 150,
   backgroundColor: '#c52b1d8c',
   borderRadius: 12,
   fontSize: 10.75

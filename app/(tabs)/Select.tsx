@@ -57,7 +57,7 @@ const filteredItems = entries.filter((dish) =>
   
 const toggleSelection = (dish: DishEntries) => {
   const isSelected = selectedItems.includes(dish.id); /**This handle the selection by filtering item by id */
-  let updatedSelection: number[]; /**Stores the IDs of all selected items */
+  let  updatedSelection: number[]; /**Stores the IDs of all selected items */
 
   if (isSelected) {
     updatedSelection = selectedItems.filter((id) => id !== dish.id);/**Does keep the selected item toggled  */
@@ -76,6 +76,8 @@ const toggleSelection = (dish: DishEntries) => {
   setTotalPrice(newTotal); 
   
 };
+
+
 
 const handleAddSelectedItems = () => {
   // Add selected dishes to cart using filteredItems
@@ -141,17 +143,16 @@ let toggleMenu = () => {
             if (timeoutRef.current) clearTimeout(timeoutRef.current);
           }}
           anchor={
-            <Button //(W3Schools, 2025)
-              mode="outlined" 
+            <TouchableOpacity //(W3Schools, 2025)
               onPress={() => {toggleMenu();
                  console.log('Menu opens when the button is pressed');  
               }}
               style={styles.dropdownButton}
-              contentStyle={styles.dropdownButtonContent}
               
             >
-              {selectedCourse || 'Select Course'} 
-            </Button>
+              <Text style={styles.buttonText}>Course Filter: <Text style={{fontWeight: 'bold', fontSize: 13, flexDirection: "column"}}>{selectedCourse}</Text>
+              </Text>
+            </TouchableOpacity>
           }
           
 
@@ -174,8 +175,8 @@ let toggleMenu = () => {
         </Menu>
         </View>
 
-        <View style={{ alignSelf: 'flex-start', height: 'auto', width: 'auto', padding:0.0005, backgroundColor: '#f05d5dff', borderRadius: 6 , margin: 20, }}>
-            <Text style={{backgroundColor: '#eed1acff', margin: 8, borderRadius:10, height: 40, width:90, fontSize: 10, padding: 10 }}>   
+        <View >
+            <Text style={{backgroundColor: '#ec6f3eff', margin: 15, borderRadius:10, height: 40, width:120, fontSize: 20, padding: 5, color: '#fff', flexDirection: 'column' }}>   
               R {totalPrice.toFixed(2)}
             </Text>
         </View>
@@ -184,18 +185,17 @@ let toggleMenu = () => {
 
 
         <View style = {{justifyContent: 'space-around', }}>
-            <TouchableOpacity
-            onPress={ handleAddSelectedItems} // called the function so the onpress knows what logic to use when adding 
+             <TouchableOpacity
+            onPress={ handleAddSelectedItems} // called the function so the on-press knows what logic to use when adding 
             style={{alignSelf: 'flex-start'}}
             >
               <View  style ={ styles.buttonAdd}>
                 <Text style={styles.buttonText}>
-                <Text style ={{paddingEnd: 20}}><FontAwesome name="opencart" size={20} color="#c97f1f"  style={{margin: 20}}/></Text>
-                         Add 
+                <Text style ={{paddingEnd: 20}}><FontAwesome name="opencart" size={40} color="#c97f1f"  style={{margin: 20}}/></Text>
                 </Text>
               </View>
-            </TouchableOpacity>
-
+            </TouchableOpacity>  
+            
             <TouchableOpacity
             onPress={clearSelection}
             >
@@ -214,7 +214,7 @@ let toggleMenu = () => {
 <ScrollView
         onTouchStart={onTouch} // this will remove the bottom tab from the bottom screen so the user can read the content fully
 
-        contentContainerStyle= {{ paddingBottom: 50}}
+        contentContainerStyle= {{ marginBottom: 10, width: 'auto', height: 450}}
 
 >
   <View >
@@ -235,14 +235,14 @@ let toggleMenu = () => {
           <View style={{ marginLeft:25,width:250, borderRadius: 15, }}>
             <ImageBackground
             source={item.image}
-            style = {[StyleSheet.absoluteFill, {opacity: 60 }]}
+            style = {[StyleSheet.absoluteFill, {opacity: 60, borderRadius: 15, overflow: 'hidden'}]}
             
             />
             <Text style={styles.heading2}>{item.dishName}</Text>
 
             <Text style={styles.heading2}>{item.courseName}</Text>          
             
-            <Text style = {styles.PriceContainer}>Average Price: R{item.price.toFixed(2)}</Text>
+            <Text style = {styles.PriceContainer}>Average Price: R {item.price.toFixed(2)}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     backgroundColor: '#eee5e5c4',
     width: 'auto',
-    height: 'auto',
+    height: 26,
     margin: 20,
     padding: 5, 
     
@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
   theItemContainer: {
     height: 'auto',
     width: 'auto',
-    padding: 3,
+    padding: 2,
     backgroundColor: '#f3b25ce0',
     borderBottomRightRadius: 20,
     borderTopLeftRadius: 20,
@@ -319,16 +319,17 @@ const styles = StyleSheet.create({
   },
   PriceContainer: {
     height: 'auto',
-    width: 150,
-    backgroundColor: '#c52b1d6e',
+    width: 145,
+    backgroundColor: '#f56e30ef',
     padding: 5.7,
-    margin: 3,
+    margin: 6,
     borderRadius: 6,
     marginBottom: 15,
     fontSize: 10,
     color: '#fff',  
     textDecorationStyle: 'double',
-    letterSpacing: 0.25,
+    letterSpacing: 0.65,
+    alignSelf: 'flex-end'
 
   },
   selectedContainer: {
@@ -349,14 +350,18 @@ const styles = StyleSheet.create({
     color: '#007AFF',
   },
     dropdownButton: {
-    width: 160,
+    width: 185,
     marginBottom: 20,
     borderColor: 'gray',
     borderRadius: 15,
     fontFamily: 'georgia',  
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(233, 134, 88)',
     height: 45.8,
-    fontSize:15
+    fontSize:15,
+    borderWidth:0,
+    textAlign: 'center',
+    justifyContent: 'center',
+    padding: 10
   },
     dropdownButtonContent: {
     justifyContent: 'space-evenly',
@@ -396,9 +401,9 @@ const styles = StyleSheet.create({
     },
     buttonText: {
       color: '#ffff',
-      fontSize: 16,
-      fontFamily: 'monospace',
-      letterSpacing:0.25
+      fontSize: 11.55,
+      fontFamily: 'Roboto',
+      letterSpacing:0.65
 
     }
 

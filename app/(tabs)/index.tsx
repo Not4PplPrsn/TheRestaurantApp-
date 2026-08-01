@@ -53,14 +53,16 @@ export default function HomeScreen() {
           }
             style={styles.dishImage}/>
         </View>
-        <View >
         <Text style={styles.heading3}>Description</Text>
-          <Text style={styles.descriptionText}>
+          <Text style={styles.baseLineText}>
             {entry.description}         
           </Text>
-        </View>
         <View>
-          <Text style={styles.Price}>Average Price: R{entry.price}</Text>
+          <Text style={styles.Price}> 
+            Average Price: 
+            <Text style={styles.baseLineText}> R {entry.price}</Text>    
+          
+          </Text>
         </View>
         </View>
       ))}
@@ -86,14 +88,20 @@ export default function HomeScreen() {
           }
             style={styles.dishImage}/>
         </View>
+
         <View >
         <Text style={styles.heading3}>Description</Text>
-          <Text style={styles.descriptionText}>
+          <Text style={styles.baseLineText}>
             {entry.description}         
           </Text>
         </View>
+
         <View>
-          <Text style={styles.Price}>Average Price: R{entry.price}</Text>
+          <Text style={styles.Price}> 
+            Average Price: 
+            <Text style={styles.baseLineText}> R {entry.price}</Text>    
+          
+          </Text>
         </View>
         </View>
       ))}
@@ -120,12 +128,16 @@ export default function HomeScreen() {
         </View>
         <View >
         <Text style={styles.heading3}>Description</Text>
-          <Text style={styles.descriptionText}>
+          <Text style={styles.baseLineText}>
             {entry.description}         
           </Text>
         </View>
         <View>
-          <Text style={styles.Price}>Average Price: R{entry.price}</Text>
+          <Text style={styles.Price}> 
+            Average Price: 
+            <Text style={styles.baseLineText}> R {entry.price}</Text>    
+          
+          </Text>
         </View>
         </View>
       ))/**(W3Schools, 2025) */}
@@ -172,7 +184,8 @@ descriptionText:{
   fontSize: 9,
   width: 160,
   flexWrap:'wrap',
-  justifyContent:'flex-start'
+  justifyContent:'flex-start',
+  textAlign: 'justify'
 },
 heading:{
   fontSize: 35,
@@ -190,9 +203,13 @@ heading:{
   
 },
 baseLineText:{
-  fontSize: 5,
+  fontSize:11.5,
   fontWeight:'300',
-  color: '#332d2dff'
+  color: '#332d2dff',
+  margin: 3,
+  justifyContent: 'space-around',
+  padding: 5,
+  textAlign:  'justify'
 },
 heading2:{
   fontSize: 20,
@@ -206,7 +223,10 @@ textContainer:{
   
 },
 heading3:{
-  fontFamily: 'Time New Roman'
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  fontSize: 15,
+  color: '#fff',
 },
 dishImage:{
   width: 70,
@@ -220,7 +240,7 @@ dishImage:{
   
 },
 dishNames: {
-  fontSize: 10,
+  fontSize: 16,
   fontWeight: '700',
   fontStyle: 'italic',
   color: '#fff',
@@ -228,9 +248,9 @@ dishNames: {
 },
 Price: {
   fontSize: 10.5,
-  fontWeight: '600',
+  fontWeight: '500',
   fontStyle: 'normal',
-  color: 'rgba(58, 82, 82, 0.85)',
+  color: 'rgba(247, 92, 72, 0.94)',
   height: 'auto',
   width: 'auto',
   alignSelf: 'flex-end',

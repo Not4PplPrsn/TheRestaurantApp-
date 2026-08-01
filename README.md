@@ -9,11 +9,7 @@ The establishment has asked to provide for them a new app which allow for catalo
  - For the button I chose not to use border, as the shadow already made the view look enticing added another dark element to it would over stimulate the user.
  - The input however, I used borders for so that the user can  more easily notice the inputs and they need.
 3.  List
-<<<<<<< HEAD
 - I made the list light blue so it would not clash with the clue at the corder of the page and made it so that the there  are no border outlines as the light blue already draws the attention of the user and make each item distinct.
-=======
-- I made the list light blue so it woul not clash with the clue at the corder of the page and made it so that the there  are no border outlines as the light blue already draws the attention of the user and make each item distinct.
->>>>>>> 63687cbad0e900ce15e931655b05cdb9330fbc2f
 4. Made it so that only the bottom part of the screen could swipe/scroll as it would be redundant for the whole swipe when there is not more information beyond the array.
 5.  Description 
 - Made the description box white so that the user is more easily draw to th content and separate the description from  the rest of the item attributes.
@@ -52,9 +48,9 @@ The establishment has asked to provide for them a new app which allow for catalo
   - Separate the  initial programme into multiple page which handle different function like the add off new items into the array and the remove of those items.
 
   - Added new pages like:
-   1. The bin page display and and show  
-
-   2. The Cart page to display the deleted items 
+   1. The Cart page displays the selected items which the user has selected.  
+   
+   2. The Bin page to display the deleted items.
 
    Here are all Screen  folders containing the screen
 
@@ -93,7 +89,7 @@ I stored the styling of the bottom navigation separately as the nav bar reverted
 ## Links 
 1. GithubLink [https://github.com/VCNMB-HAM/vcnmb-mast5112-2025-poe-Not4PplPrsn.git] & [https://github.com/Not4PplPrsn/NewRestaurant.git]
 
-2. Youtube Link [https://youtube.com/shorts/mr0Ck3cftyU]
+2. Youtube Link [https://youtu.be/YTSgfNIS7dA]
 
 ## References 
   Expo, 2025. Authentication in Expo Router. [online] Expo Documentation. Available at: <https://docs.expo.dev/router/advanced/authentication/> [Accessed 5 November 2025].

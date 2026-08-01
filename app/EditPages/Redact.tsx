@@ -46,7 +46,7 @@ const entries = useDishStore ((state) => state.entries )
 
 
       {/**The button to access the add and remove functions. */}
-      <View style={{flexDirection:'row', marginTop: 10, alignSelf: 'flex-end', marginEnd: 25,alignItems:'center'}}>
+      <View style={{flexDirection:'row', marginTop:2, alignSelf: 'flex-end', marginEnd: 10,alignItems:'center'}}>
       <TouchableOpacity
       onPress={() => router.navigate('/EditPages/Add')}
       >
@@ -62,8 +62,9 @@ const entries = useDishStore ((state) => state.entries )
           <Text style={styles.buttonText}>Remove</Text>
         </View>
       </TouchableOpacity>
-      </View>
-          <Text style={styles.heading}>Editing</Text>
+      </View>      <ScrollView>
+
+          <Text style={styles.heading}>Remove</Text>
 
       <ScrollView
       horizontal={true}
@@ -90,14 +91,17 @@ const entries = useDishStore ((state) => state.entries )
 
         <View>
           <Text style={styles.heading2}>Description</Text>
-          <Text>{dish.description}</Text>
+          <Text style= {styles.baseLineText}>{dish.description}</Text>
         </View>
 
         <View>
           <Text style={styles.heading2}>Course</Text>
           <Text style={styles.dishNames}>{dish.courseName}</Text>
         </View>
-        <Text style={styles.PriceContainer}> Average Price:  R{dish.price}</Text>
+        <View style={{ alignItems: 'flex-end' }}>
+        <Text style={styles.baseLineText}> <Text style={styles.Price}>Average Price:</Text>  R {dish.price}</Text>
+        </View>
+      
       </View>
       
       <View style={{ flexBasis: 'auto', alignSelf: 'center', margin:3 }}>
@@ -106,7 +110,7 @@ const entries = useDishStore ((state) => state.entries )
               
             }
           >
-            <View style={{ width: 45, height: 45, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 5, alignItems: 'center' }}>
+            <View style={{ width: 45, height: 45, backgroundColor: '#ebe0e0b4', borderRadius: 25, padding: 2, margin: 2, alignItems: 'center' }}>
               <MaterialIcons name="remove-circle" size={40} color={'#da2846a2'} />
             </View>
           </TouchableOpacity>
@@ -115,7 +119,7 @@ const entries = useDishStore ((state) => state.entries )
       ))}
       </ScrollView>
 
-      
+      </ScrollView>
       
 
 
@@ -134,27 +138,32 @@ heading:{
   fontSize: 35,
   fontFamily: 'Inter',
   fontWeight: '600',
-  marginTop: 10,
+  marginTop: 6,
   alignSelf: 'center',
   color: '#3b3838ff',
   width:'auto',
   borderBottomColor: '#ee9c9ce8',
   borderBottomWidth: 5,
-  lineHeight: 70,
+  lineHeight: 55,
   alignItems: 'center',
   alignContent: 'center'
   
 },
 baseLineText:{
-  fontSize: 5,
+  fontSize:11.5,
   fontWeight:'300',
-  color: '#332d2dff'
+  color: '#332d2dff',
+  margin: 3,
+  justifyContent: 'space-around',
+  padding: 5,
+  textAlign:  'justify'
 },
 heading2:{
   fontSize: 13,
   color: '#fff',
   fontWeight: '600',
-  margin: 10
+  marginTop: 10,
+  marginBottom: 3
 
 },
 addButton:{
@@ -182,7 +191,7 @@ buttonText: {
 theItemContainer: {
   height: 'auto', 
   width: 330, 
-  padding: 3, 
+  padding: 9.5, 
   backgroundColor: '#f3b25ce0',
   borderBottomRightRadius: 20.,
   borderTopLeftRadius: 20,
@@ -201,25 +210,25 @@ ImageDisplay: {
 },
 dishNames: {
   fontSize: 12,
-  fontWeight: '700',
+  fontWeight: '400',
   fontStyle: 'italic',
-  color: '#fff',
-  margin: 3,
-  backgroundColor: '#c52b1d70',
+  color: '#1f1d1dff',
+  marginTop: 1,
   padding: 5.7,
   height: 'auto',
   width: 150,
     borderRadius: 6,
 
 },
-PriceContainer:{
-    height: 'auto',
-  width: 150,
-    backgroundColor: '#c52b1d6e',
-  padding: 5.7,
-  margin: 3,
-      borderRadius: 6,
-    marginBottom: 15
+Price:{
+  fontSize: 12.5,
+  fontWeight: '500',
+  fontStyle: 'normal',
+  color: 'rgba(247, 92, 72, 0.94)',
+  height: 'auto',
+  width: 'auto',
+  alignSelf: 'flex-end',
+  margin: 4,  
 
 
 
